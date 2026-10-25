@@ -1,0 +1,11 @@
+{
+  "heroImage": "stock-painting",
+  "serviceImages": {
+    "painting-decorating": "stock-painting",
+    "gloss-work-wood-finishing": "stock-woodwork",
+    "property-improvements": "stock-improvements",
+    "jet-washing": "stock-jet-washing",
+    "house-mot": "stock-maintenance",
+    "mould-removal": "stock-mould-removal"
+  }
+}

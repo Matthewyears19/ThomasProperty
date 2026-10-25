@@ -1,8 +1,8 @@
 # Thomas Property Services — website source
 
-Phase 1 website foundation and Phase 2 enquiry code, built from the supplied development specification. HTML, CSS and vanilla JavaScript; no frontend framework or runtime npm packages. Python is used only to generate static pages. Cloudflare Pages Functions handle enquiries once the external services are configured.
+Phase 1 website foundation, Phase 2 enquiry code and Phase 3 content systems, built from the supplied development specification. HTML, CSS and vanilla JavaScript; no frontend framework or runtime npm packages. Python is used only to generate static pages. Cloudflare Pages Functions handle enquiries once the external services are configured.
 
-**Start with [the Phase 2 checklist](docs/PHASE-2.md).** Local tests pass; real Cloudflare binding, spam protection and email-delivery tests remain outstanding. No deployment, push or account changes were made by this implementation.
+**Content editing: [Phase 3 guide](docs/PHASE-3.md).** The owner reports Phase 2 account setup complete; this work does not independently claim an end-to-end live delivery test. Genuine photos and permissioned reviews are not yet supplied, so those pages and sections remain hidden. No deployment, push or account changes were made by this implementation. The [Phase 2 checklist](docs/PHASE-2.md) remains the technical integration reference.
 
 ## Build and check
 
@@ -11,6 +11,7 @@ Python 3.10+ is required to build. Node 24 is recommended for dependency-free te
 ```powershell
 python scripts/build.py
 python scripts/check.py
+python -m unittest discover -s tests -p test_content.py
 node scripts/check-navigation.cjs
 node --test tests/*.test.mjs
 python -m http.server 8000 --directory dist --bind 127.0.0.1
@@ -21,13 +22,18 @@ Open http://127.0.0.1:8000/ . This static server previews pages, but cannot run 
 ## Source structure
 
 - `data/business.json`: confirmed business details and supplied Facebook link.
+- `data/faqs.json`: general and service-specific FAQ content.
+- `data/images.json`, `data/content-settings.json`: approved imagery, source/licence records, responsive variants and hero/service placements.
+- `data/reviews.json`, `data/projects.json`: permission-gated review and genuine project content.
+- `scripts/content.py`: validation and reusable review/gallery/image/FAQ rendering.
 - `data/services.json`: five services, plus clearly labelled draft House MOT/ongoing maintenance scope.
 - `templates/page.html`: shared navigation, footer and mobile contact controls.
 - `templates/quote-form.html`: accessible enquiry form and genuine response states.
 - `templates/privacy-content.html`: privacy draft; retention periods/processor arrangements need confirmation.
-- `scripts/build.py`: generates twelve HTML documents, assets, security headers and development SEO files in ignored `dist/`.
+- `scripts/build.py`: generates thirteen base HTML documents (including Mould Removal) plus approved review/gallery/project pages, assets, security headers and development SEO files in ignored `dist/`.
 - `assets/css/site.css`: logo-sampled blue/gold design, responsive layouts and accessibility styles.
 - `assets/js/site.js`: mobile navigation, service disclosure and quote preselection.
+- `assets/js/gallery.js`: progressive category filtering when enough approved projects exist.
 - `assets/js/enquiry.js`: validation, Turnstile setup, loading/error/success/retry states and non-persistent drafts.
 - `lib/validation.mjs`: validation shared by browser/server; build copies it into public assets.
 - `lib/enquiry.mjs`: secure enquiry handling and plain-text business/acknowledgement templates.
@@ -54,9 +60,9 @@ Development output remains non-indexable: HTML robots tags, `robots.txt` and Clo
 
 Change business information in `data/business.json`, service descriptions in `data/services.json` and page copy in `scripts/build.py` or templates; rebuild and test. Actual logo colours now drive CSS and theme metadata; see the asset register. The original logo remains unchanged.
 
-Add approved optimised photographs under `assets/images/`, replace placeholder markup, and record source/licence/permission details. Include alt text, explicit image dimensions and responsive sources. Lazy-load below-the-fold images; do not lazy-load the future hero. Do not present stock images as completed work.
+Add approved optimised photographs under `assets/images/` and register them in `data/images.json`, including actual dimensions, alt text, source/licence and permission details. Assign hero/service image IDs in `data/content-settings.json`. Approved placements automatically replace placeholders and use responsive sources, eager hero loading and lazy below-the-fold images. Licensed stock receives an illustrative-image label and cannot be used as a project photograph.
 
-Reviews and project JSON files are intentionally empty. Before adding reviews, obtain permission and verified text, display name/initials, optional date, service and source. Before adding projects, obtain authorised titles, categories, descriptions and photographs, with general locations only where authorised. Phase 3 must add rendering/navigation; inserting JSON alone does not publish content. Never invent content or add fictional examples to these files.
+Reviews and project JSON files are intentionally empty. Approved, permissioned entries now automatically generate their pages, navigation and homepage sections. Before adding reviews, obtain permission and verified text, display name/initials, optional date, service and source. Before adding projects, obtain authorised titles, categories, descriptions and genuine photographs, with general locations only where separately authorised. Keep unfinished entries `approved: false`; private consent evidence belongs outside Git. The [Phase 3 guide](docs/PHASE-3.md) contains full formats. Never invent content or add fictional examples to the live data files. Rebuilding removes stale pages/assets when approval is withdrawn; review before pushing to an automatically deployed branch.
 
 ## Publication and rollback
 

@@ -21,7 +21,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="dev-banner">Development preview · Approved photography pending · Maintenance scope drafted for review</div>
+  <div class="dev-banner">Development preview · Illustrative stock photography · Maintenance scope drafted for review</div>
   <div class="topline"><div class="container"><span>Care for your property. Attention to every detail.</span><a href="$phoneHref">$phone</a></div></div>
   <header class="site-header">
     <div class="container header-inner">
@@ -31,6 +31,7 @@
         <ul class="nav-list">
           <li><a href="/" $homeCurrent>Home</a></li>
           <li class="services-nav"><div class="service-nav-row"><a href="/services/" $servicesCurrent>Services</a><button class="submenu-toggle" type="button" aria-label="Service pages" aria-expanded="false" aria-controls="service-menu"><span aria-hidden="true">⌄</span></button></div><ul id="service-menu" class="submenu">$serviceLinks</ul></li>
+          $trustNav
           <li><a href="/faqs/" $faqsCurrent>FAQs</a></li>
           <li><a href="/contact/" $contactCurrent>Contact</a></li>
         </ul>
@@ -43,7 +44,7 @@
     <div class="container footer-grid">
       <div><a class="footer-brand" href="/">THOMAS<span>PROPERTY SERVICES</span></a><p>Professional property care.<br>Cheshire and surrounding areas.</p><a href="$facebook">Find us on Facebook ↗</a></div>
       <div><h2>Our services</h2><ul>$serviceLinks</ul></div>
-      <div><h2>Let’s talk</h2><a class="footer-phone" href="$phoneHref">$phone</a><a class="email-link" href="mailto:$email">$email</a><a href="/contact/">Contact us</a><a href="/request-quote/">Request a free quote</a></div>
+      <div><h2>Let’s talk</h2><a class="footer-phone" href="$phoneHref">$phone</a><a class="email-link" href="mailto:$email">$email</a><a href="/contact/">Contact us</a><a href="/request-quote/">Request a free quote</a>$trustFooter</div>
     </div>
     <div class="container footer-bottom"><span>© $year Thomas Property Services</span><a href="/privacy-policy/">Privacy policy · development draft</a></div>
   </footer>

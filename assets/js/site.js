@@ -4,7 +4,7 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
 const submenuButton = document.querySelector('.submenu-toggle');
 const submenu = document.querySelector('#service-menu');
-const mobile = window.matchMedia('(max-width: 900px)');
+const mobile = window.matchMedia('(max-width: 1100px)');
 
 function closeSubmenu() {
   submenuButton.setAttribute('aria-expanded', 'false');

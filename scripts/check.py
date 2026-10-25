@@ -3,8 +3,12 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import xml.etree.ElementTree as ET
+import json
+from content import Content
 
 ROOT = Path(__file__).resolve().parents[1] / 'dist'
+SOURCE = ROOT.parent
+content = Content(SOURCE, json.loads((SOURCE / 'data/services.json').read_text(encoding='utf-8')), json.loads((SOURCE / 'data/business.json').read_text(encoding='utf-8')))
 
 class Page(HTMLParser):
     def __init__(self, path):
@@ -21,7 +25,8 @@ class Page(HTMLParser):
             self.ids.append(attrs['id'])
 
 pages = [Page(p) for p in ROOT.rglob('*.html')]
-assert len(pages) == 12, 'Expected twelve pages'
+expected = 7 + len(content.services) + bool(content.reviews) + bool(content.projects) + len(content.projects)
+assert len(pages) == expected, f'Expected {expected} pages from approved content'
 titles = set()
 descriptions = set()
 for p in pages:
@@ -62,6 +67,6 @@ for p in pages:
     assert 'mailto:thomaspropertyservicesuk@gmail.com' in source
 ET.parse(ROOT / 'sitemap.xml')
 assert 'Disallow: /' in (ROOT / 'robots.txt').read_text()
-assert not (ROOT / 'our-work').exists()
-assert not (ROOT / 'reviews').exists()
+assert (ROOT / 'our-work/index.html').is_file() == bool(content.projects)
+assert (ROOT / 'reviews/index.html').is_file() == bool(content.reviews)
 print(f'PASS: {len(pages)} pages; unique metadata; internal links/assets; labels/ARIA; development safeguards.')

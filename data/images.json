@@ -1,0 +1,116 @@
+[
+  {
+    "id": "stock-painting",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "stock",
+    "src": "/assets/images/stock-painting-1200.jpg",
+    "width": 1200,
+    "height": 1200,
+    "alt": "Hand applying paint to a wall with a roller",
+    "source": "https://www.pexels.com/photo/994164/",
+    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "credit": "Photo: Stephanie Ho / Pexels.",
+    "variants": [
+      {
+        "src": "/assets/images/stock-painting-640.jpg",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "stock-woodwork",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "stock",
+    "src": "/assets/images/stock-woodwork-1200.jpg",
+    "width": 1200,
+    "height": 801,
+    "alt": "Wooden interior door and surrounding room finishes",
+    "source": "https://www.pexels.com/photo/8135108/",
+    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "credit": "Photo: Max Vakhtbovych / Pexels.",
+    "variants": [
+      {
+        "src": "/assets/images/stock-woodwork-640.jpg",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "stock-improvements",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "stock",
+    "src": "/assets/images/stock-improvements-1200.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "Home improvement tools and painting supplies arranged on a surface",
+    "source": "https://www.pexels.com/photo/5481512/",
+    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "credit": "Photo: Anastasia Shuraeva / Pexels.",
+    "variants": [
+      {
+        "src": "/assets/images/stock-improvements-640.jpg",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "stock-jet-washing",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "stock",
+    "src": "/assets/images/stock-jet-washing-1200.jpg",
+    "width": 1200,
+    "height": 1600,
+    "alt": "Person pressure washing the exterior of a house",
+    "source": "https://www.pexels.com/photo/5652626/",
+    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "credit": "Photo: Caitlin Whealy / Pexels.",
+    "variants": [
+      {
+        "src": "/assets/images/stock-jet-washing-640.jpg",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "stock-maintenance",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "stock",
+    "src": "/assets/images/stock-maintenance-1200.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "A selection of property maintenance tools on a tiled floor",
+    "source": "https://www.pexels.com/photo/3615716/",
+    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "credit": "Photo: La Miko / Pexels.",
+    "variants": [
+      {
+        "src": "/assets/images/stock-maintenance-640.jpg",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "stock-mould-removal",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "stock",
+    "src": "/assets/images/stock-mould-removal-1200.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "Cleaning supplies and a gloved hand beside a bathroom sink; illustrative cleaning photograph",
+    "source": "https://www.pexels.com/photo/4239113/",
+    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "credit": "Photo: Kaboompics / Pexels.",
+    "variants": [
+      {
+        "src": "/assets/images/stock-mould-removal-640.jpg",
+        "width": 640
+      }
+    ]
+  }
+]

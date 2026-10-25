@@ -42,6 +42,7 @@ test('validation accepts phone-only and email-only enquiries', () => {
   assert.equal(validateEnquiry(fixture()).valid, true);
   const phone = {...fixture(), email: '', phone: '07410 928465'};
   assert.equal(validateEnquiry(phone).valid, true);
+  assert.equal(validateEnquiry({...fixture(), service: 'Mould Removal'}).valid, true);
 });
 test('validation rejects missing contact, invalid contacts, services, controls and excessive lengths', () => {
   for (const change of [{name: ''}, {email: '', phone: ''}, {email: 'invalid'}, {phone: '123'}, {service: 'Roofing'}, {description: ''}, {name: 'x'.repeat(101)}, {details: 'x'.repeat(3001)}, {email: 'a@example.com\nBcc: x@example.com'}, {description: '\u0000'}]) {

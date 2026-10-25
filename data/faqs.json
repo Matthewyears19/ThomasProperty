@@ -1,0 +1,108 @@
+[
+  {
+    "id": "coverage",
+    "question": "Which areas do you cover?",
+    "answer": "We serve $area. Please share your postcode so we can discuss coverage for your property.",
+    "services": []
+  },
+  {
+    "id": "quotations",
+    "question": "Are quotations free?",
+    "answer": "Yes. Quotations are free and no-obligation. The scope, materials and timing are discussed for your individual job.",
+    "services": []
+  },
+  {
+    "id": "reply-time",
+    "question": "How long does it take to receive a reply?",
+    "answer": "We aim to respond to enquiries within 48 hours. Please telephone for a more urgent enquiry.",
+    "services": []
+  },
+  {
+    "id": "materials",
+    "question": "Do you provide materials and equipment?",
+    "answer": "Materials and equipment arrangements depend on the work. Please discuss these as part of your quotation.",
+    "services": [
+      "painting-decorating",
+      "gloss-work-wood-finishing",
+      "property-improvements",
+      "jet-washing"
+    ]
+  },
+  {
+    "id": "landlords",
+    "question": "Do you work with landlords and letting agents?",
+    "answer": "Yes. Landlords and letting agents can enquire about property improvements, one-off maintenance visits and ongoing upkeep arrangements.",
+    "services": [
+      "property-improvements",
+      "house-mot"
+    ]
+  },
+  {
+    "id": "commercial",
+    "question": "Do you undertake commercial work?",
+    "answer": "Commercial businesses can enquire about the advertised services. Suitability and scope are discussed for each job.",
+    "services": []
+  },
+  {
+    "id": "ongoing-maintenance",
+    "question": "Can I enquire about ongoing property maintenance?",
+    "answer": "Yes. Enquire about scheduled visual maintenance reviews and agreed upkeep jobs. Visit frequency, scope and terms are agreed individually. The proposed service scope is a draft for review.",
+    "services": [
+      "house-mot"
+    ]
+  },
+  {
+    "id": "requesting-quote",
+    "question": "How can I request a quotation?",
+    "answer": "Use the Request a Free Quote page, call $phone or email $email. Telephone and email remain available if online submission is unavailable.",
+    "services": []
+  },
+  {
+    "id": "painting-preparation",
+    "question": "What should I tell you about a painting or decorating job?",
+    "answer": "Let us know which rooms or exterior surfaces need attention, their current condition and your preferred timeframe. Preparation, access and suitable finishes will be discussed before the work is agreed.",
+    "services": [
+      "painting-decorating"
+    ]
+  },
+  {
+    "id": "wood-finishes",
+    "question": "Can I enquire about doors, frames and skirting boards?",
+    "answer": "Yes. Enquire about painting, gloss finishes and varnishing for suitable wooden surfaces. The condition of the woodwork and the right preparation will be discussed. Specialist restoration is not currently advertised.",
+    "services": [
+      "gloss-work-wood-finishing"
+    ]
+  },
+  {
+    "id": "outdoor-surfaces",
+    "question": "Can every outdoor surface be jet washed?",
+    "answer": "Suitability depends on the surface and its condition. Describe the area and any fragile or damaged sections so we can discuss an appropriate approach. Specialist treatments and surface guarantees are not assumed.",
+    "services": [
+      "jet-washing"
+    ]
+  },
+  {
+    "id": "house-mot-limits",
+    "question": "Does a House MOT replace a survey or safety inspection?",
+    "answer": "No. It is a proposed general visual maintenance review of agreed, safely accessible areas. It does not replace a structural survey, gas safety certificate, electrical inspection or any statutory inspection. Follow-up work and specialist assessments are separate.",
+    "services": [
+      "house-mot"
+    ]
+  },
+  {
+    "id": "improvements-scope",
+    "question": "What kinds of property improvements can I enquire about?",
+    "answer": "Filling and preparation, painting, general cleaning, garden work and minor property improvements. Electrical, gas, plumbing and other regulated work are not included in the advertised service.",
+    "services": [
+      "property-improvements"
+    ]
+  },
+  {
+    "id": "mould-returning",
+    "question": "Will surface mould cleaning stop mould returning?",
+    "answer": "Surface cleaning alone does not resolve every moisture source. Recurring, widespread or hidden mould may need specialist assessment. Tell us about the affected area so suitability and scope can be discussed before any work is agreed.",
+    "services": [
+      "mould-removal"
+    ]
+  }
+]

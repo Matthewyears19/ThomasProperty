@@ -83,5 +83,21 @@
       "ongoing": "Ongoing maintenance: scheduled visual reviews and an agreed programme of minor upkeep, such as filling, painting, general cleaning, garden work and suitable exterior cleaning. Visit frequency, access, materials, individual jobs and charges are agreed in writing. Additional or urgent work needs a separate agreement; no emergency response time is promised.",
       "exclusions": "The House MOT is not a structural survey, safety certification or a guarantee that a property is free of defects. It excludes hidden or inaccessible areas, invasive testing, work at unsafe heights, gas, electrical and plumbing work, and statutory inspections. Suspected specialist issues should be assessed by an appropriately qualified professional."
     }
+  },
+  {
+    "slug": "mould-removal",
+    "name": "Mould Removal",
+    "short": "Discuss visible mould and the care your property needs.",
+    "symbol": "06",
+    "intro": "Enquire about cleaning visible surface mould on suitable areas of your property across Cheshire and surrounding areas. The extent, surface condition and likely moisture source need to be discussed before work is agreed.",
+    "work": [
+      "Discussion of the affected area and visible surface mould",
+      "Surface cleaning where suitable and within an agreed scope",
+      "Preparation and redecoration enquiries once the underlying issue has been addressed",
+      "Referral for specialist assessment where the extent or cause requires it"
+    ],
+    "benefit": "A careful approach starts with understanding the affected area. Surface cleaning does not resolve every cause of damp or condensation, and no permanent removal or health outcome is promised. Extensive, recurring or hidden mould may require a specialist assessment.",
+    "note": "Tell us where the mould is appearing, the approximate affected area and whether it has returned after previous cleaning. Exact treatment, access and suitability are agreed before a quotation.",
+    "quote": "Mould Removal"
   }
 ]
