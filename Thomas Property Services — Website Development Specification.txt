@@ -1,0 +1,1004 @@
+# Thomas Property Services — Website Development Specification
+
+**Version:** 1.0  
+**Status:** Approved discovery requirements, pending brand assets and final deployment configuration  
+**Domain:** thomaspropertyservices.uk  
+**Project objective:** Design and develop a professional, conversion-focused website for Thomas Property Services, a property maintenance and improvement business operating across Cheshire and surrounding areas.
+
+---
+
+## 1. Project instructions for Codex
+
+Act as an experienced frontend developer, UX designer and technical SEO specialist.
+
+Build a production-quality, responsive, multi-page business website using semantic HTML5, CSS3 and vanilla JavaScript. Do not introduce React, Next.js, databases, CMS platforms or unnecessary third-party libraries.
+
+Prioritise:
+
+1. Generating genuine customer enquiries and quotation requests.
+2. A premium and trustworthy visual identity.
+3. Excellent usability on mobile devices.
+4. Fast loading, accessibility and maintainability.
+5. Consistent branding across every page.
+6. Local SEO and search-engine discoverability.
+7. Secure enquiry processing.
+8. Minimal recurring operating costs.
+
+The website should be a working implementation, not merely a visual mock-up.
+
+**Important constraints:**
+
+- Do not invent business history, qualifications, accreditations, awards, reviews, project examples or guarantees.
+- Preserve all confirmed business information.
+- Use clearly identified configuration variables or development placeholders for missing information.
+- Never publish invented customer testimonials.
+- Never present stock photography as work completed by Thomas Property Services.
+- Do not deploy to the live business domain without explicit approval.
+- Keep secrets and API credentials out of frontend code and the Git repository.
+- If an integration requires external account configuration, implement the code and document the setup without pretending the integration is already active.
+
+## 2. Business information
+
+**Business name:** Thomas Property Services
+
+**Website:** thomaspropertyservices.uk
+
+**Business email:** thomaspropertyservicesuk@gmail.com
+
+**Telephone:** 07410 928465
+
+**Phone link:** tel:+447410928465
+
+**Service area:** Cheshire and surrounding areas. Specific base town, towns prioritised for SEO and travelling radius remain unconfirmed.
+
+**Business status:** Recently started trading.
+
+**Target customers:**
+
+- Homeowners
+- Landlords
+- Letting agents
+- Commercial businesses
+- Property developers
+- Housing associations
+
+**Brand values:**
+
+- Reliable and hardworking
+- Professional and approachable
+- Excellent attention to detail
+- Respect for customers' properties
+- Quality craftsmanship
+- Good value for money
+
+**Relevant experience:**
+
+The owner has worked alongside their father since approximately age 15, learning painting and decorating skills from him. Their father has over 25 years of experience. The owner has also worked for other companies undertaking exterior work, including landscaping, roofing and bricklaying.
+
+Distinguish the father's experience from the owner's experience. Do not imply that Thomas Property Services itself has been operating for 25 years. Do not advertise roofing and bricklaying as current services unless separately confirmed.
+
+## 3. Brand identity and design system
+
+### 3.1 Design direction
+
+The chosen direction is **Premium Craftsmanship**.
+
+The website must be:
+
+- Professional and refined.
+- Visually consistent with the existing company logo, business cards and workwear.
+- Modern but not excessively minimalist.
+- Approachable rather than intimidating.
+- Premium-looking without implying that the company is unusually expensive.
+- Strongly focused on practical customer actions.
+
+### 3.2 Colour palette
+
+Existing brand colours are blue, white and gold.
+
+Use this provisional palette until the actual logo is supplied:
+
+| Colour | Hex | Usage |
+|---|---|---|
+| Deep navy | #172C46 | Navigation, hero backgrounds, headings |
+| Warm gold | #C4A15B | Accents, icons, primary CTA treatment |
+| Soft white | #F7F6F2 | Page backgrounds |
+| White | #FFFFFF | Cards, backgrounds and reversed text |
+| Dark text | #202B36 | Body copy |
+
+These are temporary design tokens. The final palette must be sampled from the provided brand assets, with adjustments where necessary to maintain readable colour contrast.
+
+Define colours as CSS custom properties. Do not scatter hardcoded colour values throughout the stylesheets.
+
+### 3.3 Typography
+
+Use a refined and legible combination of heading and body typefaces.
+
+Prefer locally hosted or system fallback fonts to minimise layout shifts and third-party requests.
+
+Establish a consistent typographic scale for:
+
+- Hero headings
+- Section titles
+- Service headings
+- Body copy
+- Small supporting text
+- Form labels
+- Navigation
+
+Maintain sufficient contrast, generous line-height and comfortable reading widths.
+
+### 3.4 Visual treatment
+
+Use:
+
+- Large, carefully cropped service photographs.
+- Generous spacing.
+- Well-organised content sections.
+- Subtle shadows and restrained borders.
+- High-quality service cards.
+- Clear typographic hierarchy.
+- Strong but tasteful gold accents.
+- Subtle hover transitions and smooth movement.
+
+Avoid:
+
+- Excessive animations.
+- Autoplay videos.
+- Busy background patterns.
+- Unnecessary sliders.
+- Large JavaScript dependencies.
+- Generic-looking template layouts.
+
+Respect `prefers-reduced-motion`.
+
+### 3.5 Logo and imagery
+
+The existing company logo will be provided separately.
+
+Until supplied, use a clearly marked temporary text-based brand identity.
+
+At launch, use appropriately licensed commercial imagery for services where genuine project images are unavailable. Record image sources and licence details.
+
+Do not create a fictional completed-work portfolio.
+
+All major images should have appropriate alt text, responsive sizes, optimised formats and suitable dimensions.
+
+## 4. Information architecture
+
+Create the following main pages:
+
+1. Home
+2. Our Services
+3. Our Work / Project Gallery
+4. Customer Reviews
+5. Frequently Asked Questions
+6. Contact Us
+7. Request a Quote
+8. Privacy Policy
+
+Create dedicated detail pages for the major services:
+
+- Painting and Decorating
+- Gloss Work and Wood Finishing
+- Property Improvements
+- Jet Washing and Exterior Cleaning
+- House MOT and Landlord Maintenance
+
+The About Us content should be a section on the homepage, **not a standalone page in version 1**.
+
+### 4.1 Navigation
+
+Desktop navigation should display:
+
+Home | Services | Our Work | Reviews | FAQs | Contact
+
+Include a visually prominent **Request a Free Quote** action.
+
+Use a Services submenu linking to the dedicated service pages.
+
+Mobile navigation should use an accessible collapsible menu with correctly implemented keyboard support, focus management and expanded/collapsed states.
+
+Keep quotation and telephone contact actions easily accessible on mobile.
+
+### 4.2 Page routes
+
+Use these proposed routes:
+
+- `/`
+- `/services/`
+- `/services/painting-decorating/`
+- `/services/gloss-work-wood-finishing/`
+- `/services/property-improvements/`
+- `/services/jet-washing/`
+- `/services/house-mot/`
+- `/our-work/`
+- `/reviews/`
+- `/faqs/`
+- `/contact/`
+- `/request-quote/`
+- `/privacy-policy/`
+
+Use clean, consistent URLs supported by the selected static hosting platform.
+
+The project gallery may be hidden from public navigation until genuine completed-work photographs are available. Do not publish an empty gallery or placeholder client projects.
+
+## 5. Homepage specification
+
+The homepage should be the highest-priority page.
+
+### Section 1 — Header
+
+Include:
+
+- Company logo.
+- Main navigation.
+- Request a Free Quote button.
+- Telephone link on desktop where space allows.
+- Accessible mobile navigation.
+
+### Section 2 — Hero
+
+Use a full-width, high-quality photograph relevant to painting, decorating or property maintenance.
+
+Proposed headline:
+
+**Quality Property Services. Reliable Workmanship. Exceptional Care.**
+
+Supporting copy:
+
+Professional painting, decorating and property improvements across Cheshire and surrounding areas. From refreshing a single room to maintaining an entire property, Thomas Property Services focuses on quality finishes, reliable service and attention to detail.
+
+Primary CTA: **Request a Free Quote**
+
+Secondary CTA: **Call 07410 928465**
+
+Include a short service-area line.
+
+### Section 3 — Core services
+
+Display five service cards:
+
+- Painting and Decorating
+- Gloss Work and Wood Finishing
+- Property Improvements
+- Jet Washing and Exterior Cleaning
+- House MOT and Landlord Maintenance
+
+Each card should have an appropriate image or icon, a short description and a link to the dedicated service page.
+
+### Section 4 — Why Choose Thomas Property Services?
+
+Highlight:
+
+- Attention to detail
+- Reliable, hardworking service
+- Respect and care for customers' properties
+- Quality finishing
+- Free, no-obligation quotations
+
+Avoid vague or unsupported claims such as "Cheshire's number one contractor".
+
+### Section 5 — Short introduction
+
+Introduce the business, drawing on the owner's experience working with their father and other companies.
+
+Keep the text personable, credible and concise.
+
+The tone should be confident without exaggerating the company's age.
+
+### Section 6 — Project showcase
+
+When genuine project photography becomes available, show a selection of completed work.
+
+Until then, omit this section or replace it with a clearly labelled service-imagery section. Do not imply that licensed stock photographs depict actual projects.
+
+### Section 7 — Customer reviews
+
+Display up to three genuine, permissioned testimonials.
+
+Link to the full Reviews page.
+
+If permissioned reviews are not yet supplied to the codebase, hide the review section rather than invent content.
+
+### Section 8 — Areas served
+
+State that the business serves Cheshire and surrounding areas.
+
+Do not list an invented base town, travel radius or a definitive collection of towns until verified.
+
+### Section 9 — Final contact CTA
+
+Use a contrasting navy or brand-coloured section.
+
+Suggested headline:
+
+**Ready to Improve Your Property?**
+
+Supporting text:
+
+Contact Thomas Property Services to discuss your project and request a free, no-obligation quotation.
+
+Buttons:
+
+- Request a Free Quote
+- Call Now
+
+### Section 10 — Footer
+
+Include:
+
+- Business name
+- Contact details
+- Service links
+- General service area
+- Privacy policy
+- Copyright information
+- Social media links only when supplied
+
+Do not publish a fabricated office address.
+
+## 6. Services content
+
+Each service detail page should use a consistent layout:
+
+1. Service-specific heading.
+2. Relevant introductory photograph.
+3. Description of the service.
+4. Types of work undertaken.
+5. Benefits to the customer.
+6. Relevant genuine photographs when available.
+7. Service-specific quotation CTA.
+8. Links to related services.
+9. Relevant FAQs if useful.
+
+### 6.1 Painting and Decorating
+
+Describe internal and external painting, surface preparation, filling and finishing, subject to the exact jobs accepted by the business.
+
+Emphasise clean, careful workmanship and respect for customers' properties.
+
+### 6.2 Gloss Work and Wood Finishing
+
+Discuss doors, frames, skirting boards and suitable wooden surfaces, including painting, gloss finishes and varnishing.
+
+Do not claim specialist restoration services unless confirmed.
+
+### 6.3 Property Improvements
+
+Include:
+
+- Filling and preparation
+- Painting
+- General cleaning
+- Garden work
+- Minor property improvements
+
+Keep the description broad but accurate. Do not automatically include electrical, gas, plumbing or other regulated work.
+
+### 6.4 Jet Washing and Exterior Cleaning
+
+Discuss cleaning of suitable outdoor surfaces.
+
+Do not advertise specific specialist treatments or surface guarantees without confirmation.
+
+### 6.5 House MOT and Landlord Maintenance
+
+Explain that customers may enquire about:
+
+- One-off property condition and maintenance visits
+- Ongoing property upkeep arrangements
+
+The exact inspection checklist, scope of work, deliverables and maintenance frequencies are still to be confirmed.
+
+Until clarified, describe the offering as a general maintenance review and enquiry-based service.
+
+Do not imply that a House MOT replaces a professional structural survey, gas safety certificate, electrical inspection or another statutory inspection.
+
+Provide separate quotation options for one-off checks and ongoing maintenance.
+
+## 7. Quotation request system
+
+This is one of the website's most important features.
+
+### 7.1 UX requirements
+
+Create a short, mobile-friendly form with optional additional information.
+
+**Required fields:**
+
+- Full name
+- At least one contact method: email address or telephone number
+- Service required
+- Short description of the work
+
+**Optional fields:**
+
+- Second contact method
+- Property postcode
+- Preferred start date or timeframe
+- Additional details
+
+No customer photo uploads are required.
+
+An email address is necessary for an automated email acknowledgement. If the customer supplies only a phone number, do not falsely promise an email acknowledgement.
+
+### 7.2 Service options
+
+Provide:
+
+- Painting and Decorating
+- Gloss Work and Wood Finishing
+- Property Improvements
+- Jet Washing
+- One-off House MOT
+- Ongoing Property Maintenance
+- Other / Not Sure
+
+### 7.3 Form behaviour
+
+- Use accessible labels and informative error messages.
+- Validate fields on both client and server.
+- Prevent accidental duplicate submissions.
+- Show clear loading, success and failure states.
+- Display a thank-you confirmation only after successful submission.
+- Include an easily accessible retry method for failures.
+- Preserve typed content where practical after a recoverable error.
+- Provide a telephone fallback if submission is unavailable.
+
+### 7.4 Confirmation text
+
+Suggested successful submission message:
+
+**Thank you for your enquiry.**
+
+Your message has been received. We aim to respond within 48 hours.
+
+For a more urgent enquiry, telephone 07410 928465.
+
+Do not show this confirmation if the server has not accepted the enquiry.
+
+### 7.5 Notifications
+
+On a successful submission:
+
+1. Send a formatted enquiry notification to `thomaspropertyservicesuk@gmail.com`.
+2. If a customer email is available, send an automatic acknowledgement.
+3. Record a successful quote conversion event where supported.
+4. Do not send duplicate notifications during normal request retries.
+5. Record server-side errors without unnecessarily logging personal information.
+
+### 7.6 Suggested email architecture
+
+Preferred infrastructure:
+
+- Cloudflare Pages Functions for a secure server-side endpoint.
+- Resend for transactional emails.
+- Cloudflare Turnstile for spam and bot protection.
+
+Keep API credentials in environment variables or server-side secrets.
+
+Never call the email provider directly from browser JavaScript with a secret API key.
+
+Verify Turnstile tokens server-side.
+
+Use a verified sending domain or subdomain for outbound mail. Deliver business notifications to the existing Gmail address.
+
+Configure domain authentication as required by the email provider.
+
+If these integrations cannot be configured, clearly document missing steps. Never simulate successful email delivery in production.
+
+### 7.7 Privacy and security
+
+- Collect only necessary customer information.
+- Provide a privacy notice explaining enquiry-data use and retention.
+- Include suitable spam and rate-limit protections.
+- Validate input lengths and formats.
+- Safely handle user-supplied text.
+- Avoid unnecessary personal-data storage.
+- Do not publish personal information in GitHub.
+- Use HTTPS for all production traffic.
+- Ensure any analytics or cookies are configured consistently with applicable UK privacy requirements.
+
+## 8. Contact and conversion design
+
+The website's priority is encouraging visitors to call or submit a quotation request.
+
+### 8.1 Contact buttons
+
+Implement:
+
+- Request a Free Quote
+- Call Now
+- Email Us
+
+Primary CTA links to `/request-quote/`.
+
+Telephone actions must use:
+
+`tel:+447410928465`
+
+Email links must use:
+
+`mailto:thomaspropertyservicesuk@gmail.com`
+
+### 8.2 Sticky conversion controls
+
+Desktop:
+
+- Keep a clearly visible quotation CTA in the navigation.
+- Use a restrained sticky header.
+
+Mobile:
+
+- Use a compact fixed contact bar or equivalent visible contact controls.
+- Prioritise "Call" and "Get a Quote".
+- Ensure controls do not obstruct form fields, navigation or essential content.
+- Respect safe-area insets on mobile devices.
+
+### 8.3 Conversion principles
+
+- Make primary actions obvious within the first screen.
+- Avoid unnecessary pop-ups.
+- Keep form completion time short.
+- Show contact details visibly.
+- Repeat CTAs at appropriate points on longer pages.
+- Clearly state that quotations are free and no-obligation.
+- Do not show service prices.
+- Avoid fake urgency, countdown timers or misleading scarcity claims.
+
+## 9. Reviews and project gallery
+
+### 9.1 Reviews
+
+Build a dedicated Reviews page.
+
+Use elegant, readable testimonial cards rather than automatically advancing carousels.
+
+Reviews should be managed through a simple structured data file or another Git-managed content format.
+
+Store:
+
+- Review text
+- Customer display name or initials, with permission
+- Date, if available and verified
+- Service type, if appropriate
+- Source, if relevant
+
+Do not invent ratings, names or review dates.
+
+Allow three reviews to be featured on the homepage.
+
+### 9.2 Project gallery
+
+Prepare a gallery system that can be populated through GitHub.
+
+Each project can contain:
+
+- Project title
+- Service category
+- General location, where authorised
+- Short description
+- Photographs
+- Optional before/after images
+
+Optimise gallery images and lazy-load below-the-fold content.
+
+Provide filtering by service category only if enough genuine projects exist to justify it.
+
+Do not publish an empty portfolio.
+
+## 10. Frequently Asked Questions
+
+Include questions such as:
+
+- Which areas do you cover?
+- Are quotations free?
+- How long does it take to receive a reply?
+- Do you provide materials and equipment?
+- Do you work with landlords and letting agents?
+- Do you undertake commercial work?
+- Can I enquire about ongoing property maintenance?
+- How can I request a quotation?
+
+Answers must remain consistent with confirmed policies and service coverage.
+
+Avoid publishing precise claims that have not been verified.
+
+## 11. Technical architecture
+
+### 11.1 Frontend
+
+Use:
+
+- Semantic HTML5
+- Modern CSS
+- Vanilla JavaScript
+- CSS custom properties
+- Responsive layouts using Grid and Flexbox
+- Appropriate image formats and responsive image techniques
+
+Do not add a frontend framework unless there is a compelling technical reason, documented before introducing it.
+
+### 11.2 Hosting
+
+Preferred production host: Cloudflare Pages.
+
+Keep GitHub as the source-code repository.
+
+Support:
+
+- Custom domain
+- HTTPS
+- Preview deployments
+- Production deployments
+- Version-controlled releases
+
+Do not automatically change DNS or publish the production domain.
+
+### 11.3 Configuration
+
+Centralise editable business data:
+
+- Business name
+- Phone number
+- Email
+- Service area
+- Service descriptions
+- Social links
+- Brand assets
+- Verified trust information
+
+Avoid duplicating editable business details throughout multiple files where practical.
+
+### 11.4 Example project organisation
+
+```text
+thomas-property-services/
+├── index.html
+├── services/
+│   ├── index.html
+│   ├── painting-decorating/
+│   ├── gloss-work-wood-finishing/
+│   ├── property-improvements/
+│   ├── jet-washing/
+│   └── house-mot/
+├── our-work/
+├── reviews/
+├── faqs/
+├── contact/
+├── request-quote/
+├── privacy-policy/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── fonts/
+├── data/
+│   ├── business.json
+│   ├── services.json
+│   ├── reviews.json
+│   └── projects.json
+├── functions/
+│   └── api/
+│       └── enquiry.js
+├── robots.txt
+├── sitemap.xml
+├── README.md
+├── .env.example
+└── .gitignore
+```
+
+Include an appropriate `index.html` in each page directory for static routing.
+
+Ensure the code works correctly with the chosen Cloudflare Pages deployment configuration.
+
+If another file organisation provides a demonstrable maintenance benefit, document the reasoning.
+
+## 12. Search-engine optimisation
+
+### 12.1 Primary objective
+
+Target customers searching for painting, decorating, property maintenance, jet washing and related services within the areas genuinely covered by the business.
+
+### 12.2 On-page SEO
+
+Each page needs:
+
+- A unique, descriptive title.
+- A useful meta description.
+- A single primary H1.
+- Logical heading hierarchy.
+- Descriptive internal links.
+- Appropriate image alt text.
+- Canonical URLs.
+- Relevant service content.
+- Strong contextual CTAs.
+
+Use natural language and avoid keyword stuffing.
+
+### 12.3 Initial keyword themes
+
+- Property services Cheshire
+- Painting and decorating Cheshire
+- Painter and decorator Cheshire
+- Gloss painting
+- Jet washing Cheshire
+- Property maintenance Cheshire
+- Landlord property maintenance Cheshire
+
+These are provisional keyword themes, not verified search-volume targets.
+
+Do not manufacture individual town pages until the business's base and priority service locations are supplied.
+
+### 12.4 Technical SEO
+
+Implement:
+
+- `robots.txt`
+- XML sitemap containing only public, indexable pages
+- Canonical tags
+- Open Graph metadata
+- Relevant social sharing images
+- Appropriate structured data
+- Correct HTTP statuses
+- 404 handling
+- Search-engine-friendly navigation links
+
+Use appropriate Schema.org business and service structured data.
+
+Only include facts that are actually known. Do not invent physical addresses, opening hours, review aggregates or geographic coordinates.
+
+### 12.5 Future local SEO
+
+After the relevant information is provided:
+
+- Optimise for priority towns.
+- Connect Google Search Console.
+- Verify Google Business Profile status.
+- Check business contact information consistency.
+- Build useful local content where there is a genuine customer need.
+
+Do not create thin, repetitive doorway pages for every town in Cheshire.
+
+## 13. Analytics
+
+The website owner wants to monitor:
+
+- Website traffic
+- Quote form submissions
+- Click-to-call interactions
+- Conversion performance
+
+Implement or prepare privacy-conscious analytics.
+
+Prefer:
+
+- Free or low-cost operation.
+- Minimal tracking.
+- No unnecessary personal-data collection.
+- Clear documentation.
+
+Record successful form submissions as conversions only after a confirmed server-side success response.
+
+Record click-to-call actions separately. They indicate intent to call, not confirmation that a telephone conversation occurred.
+
+If the chosen analytics provider does not support custom events, document the limitation and use an appropriate alternative.
+
+Do not expose customer enquiry details in analytics events.
+
+## 14. Accessibility and performance
+
+Target WCAG 2.2 AA accessibility where applicable.
+
+Implement:
+
+- Semantic landmarks.
+- Keyboard-accessible navigation.
+- Visible keyboard focus.
+- Accessible forms.
+- Correct headings.
+- Adequate colour contrast.
+- Touch-friendly controls.
+- Descriptive alternative text.
+- Reduced-motion support.
+- Responsive layouts without horizontal overflow.
+- Appropriate mobile font sizes.
+
+### Performance targets
+
+On representative mobile connections, aim for:
+
+- Largest Contentful Paint no more than 2.5 seconds.
+- Cumulative Layout Shift no more than 0.1.
+- Interaction to Next Paint no more than 200 ms.
+- Lighthouse Performance and Accessibility scores of at least 90 under the defined test conditions.
+
+Treat these as measurable performance targets, not guaranteed results.
+
+Prioritise efficient images, minimal JavaScript and avoiding render-blocking resources.
+
+## 15. Content and copywriting requirements
+
+Codex should create initial professional website copy using the verified business information in this specification.
+
+Tone:
+
+- Professional
+- Confident
+- Approachable
+- Trustworthy
+- Clear and direct
+- Free from exaggerated marketing claims
+
+Use British English spelling throughout.
+
+Do not use invented numbers, fabricated customer stories, false qualifications or unverified guarantees.
+
+Keep the content accessible to ordinary homeowners without unnecessary construction jargon.
+
+Use service-specific content rather than repeating identical paragraphs across multiple pages.
+
+## 16. Privacy and legal pages
+
+Create a clear privacy policy covering the actual form and analytics systems used.
+
+The website should be designed to support applicable UK privacy and electronic communications requirements.
+
+Before launch, the operator must confirm:
+
+- Business legal identity and appropriate disclosures.
+- Contact details.
+- Privacy notice accuracy.
+- Data processors used for enquiries and analytics.
+- Data retention approach.
+- Consent requirements for any non-essential cookies or tracking technologies.
+- Whether any additional website terms are required.
+
+Do not present placeholder legal language as final legal approval.
+
+## 17. Deployment and maintenance
+
+### Development workflow
+
+1. Create or inspect the GitHub repository.
+2. Implement the design system and shared components.
+3. Build the homepage.
+4. Build service pages.
+5. Implement contact and quotation forms.
+6. Add customer review and gallery content systems.
+7. Implement SEO, accessibility and analytics.
+8. Connect the secure form backend.
+9. Test all required functionality.
+10. Deploy to a staging or preview URL.
+11. Conduct final review.
+12. Publish to the production domain only after approval.
+
+### Content updates
+
+Project photographs, service descriptions and reviews should be maintainable via Git-managed files.
+
+Provide clear README instructions covering:
+
+- Adding reviews.
+- Adding projects.
+- Replacing images.
+- Updating service descriptions.
+- Updating business contact details.
+- Testing locally.
+- Previewing changes.
+- Publishing approved changes.
+- Managing environment variables and secrets.
+- Reverting an unsuccessful deployment.
+
+## 18. Testing and acceptance criteria
+
+A release is acceptable only when:
+
+### Functionality
+
+- All published pages load correctly.
+- All internal navigation works.
+- Mobile navigation functions correctly.
+- Telephone links open the device's calling interface.
+- Email links contain the correct address.
+- Quote forms validate correctly.
+- Successful enquiries reach the business email.
+- Customer acknowledgements are delivered when an email address is provided.
+- Error states do not display false success messages.
+- Spam protection is enabled and validated server-side.
+
+### Visual quality
+
+- The supplied logo is implemented accurately.
+- Colours match the confirmed brand identity.
+- Pages are consistent and professionally styled.
+- Layouts work on mobile, tablet and desktop.
+- Text is readable over hero imagery.
+- No sections contain broken images or overflowing content.
+
+### SEO and accessibility
+
+- Public pages have unique metadata.
+- Sitemap and robots directives are valid.
+- No fabricated structured-data claims exist.
+- Navigation and forms work with a keyboard.
+- Colour contrast and focus visibility are sufficient.
+- Essential functionality does not depend on decorative animation.
+
+### Deployment
+
+- The preview site is reviewed before release.
+- The production domain uses HTTPS.
+- DNS and email authentication records are checked.
+- Credentials are securely configured.
+- Analytics are verified.
+- No production secrets are present in public code.
+- No staging-only or placeholder content is accidentally published.
+
+## 19. Implementation phases
+
+### Phase 1 — Website foundation
+
+Build the brand system, responsive navigation, homepage, service pages, contact page and footer.
+
+### Phase 2 — Conversion functionality
+
+Implement quotation forms, secure email handling, customer acknowledgements and contact CTAs.
+
+### Phase 3 — Content and trust
+
+Add genuine testimonials, confirmed business information, appropriate imagery, FAQs and a gallery system.
+
+### Phase 4 — SEO and analytics
+
+Implement search metadata, structured data, sitemap, analytics and conversion measurement.
+
+### Phase 5 — Testing and launch
+
+Conduct cross-device tests, accessibility checks, email tests, production configuration checks and preview review.
+
+Do not mark a phase complete unless its functionality has been implemented and validated.
+
+## 20. Unresolved inputs
+
+Before final production publication, obtain or confirm:
+
+1. Existing business logo and branding assets.
+2. Actual brand colour values.
+3. Confirmed base town and priority service areas.
+4. Existing hosting provider and deployment access.
+5. Domain registrar and DNS access.
+6. Genuine customer testimonials and publication permission.
+7. House MOT scope and any recurring maintenance terms.
+8. Exact conditions of the workmanship guarantee.
+9. Whether all materials are always supplied or depend on the quotation.
+10. Current social media profiles, if any.
+11. Legal business identity and privacy-policy details.
+12. Production email provider credentials and authenticated sending domain.
+13. Approved, properly licensed website imagery.
+14. Final decision on gallery publication.
+15. Analytics and tracking configuration.
+
+Missing information must not be fabricated.
+
+## 21. Final deliverables
+
+Codex should produce:
+
+- Complete website source code.
+- Responsive styles.
+- Reusable page components or patterns.
+- Working enquiry system after external setup.
+- Business notification and customer acknowledgement templates.
+- GitHub-compatible source repository.
+- Cloudflare Pages deployment configuration.
+- SEO files and structured metadata.
+- Privacy notice draft for review.
+- Analytics integration.
+- Example review and project data formats.
+- README and setup guide.
+- Deployment checklist.
+- Testing results and remaining limitations.
+
+**Final instruction:** Build a polished, credible and conversion-focused website for Thomas Property Services. It should look premium, perform efficiently and make contacting the business exceptionally straightforward, while remaining easy to maintain and inexpensive to operate.

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title</title>
+  <meta name="description" content="$description">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="$canonical">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="$title">
+  <meta property="og:description" content="$description">
+  <meta property="og:url" content="$canonical">
+  <meta property="og:image" content="$domain/assets/images/logo.jpg">
+  <meta property="og:image:alt" content="Thomas Property Services logo">
+  <meta name="theme-color" content="#172C46">
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="dev-banner">Development preview · Photography and final brand colours pending approval</div>
+  <div class="topline"><div class="container"><span>Care for your property. Attention to every detail.</span><a href="$phoneHref">$phone</a></div></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Thomas Property Services — home"><img src="$logo" width="1254" height="1254" alt="Thomas Property Services"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/" $homeCurrent>Home</a></li>
+          <li class="services-nav"><div class="service-nav-row"><a href="/services/" $servicesCurrent>Services</a><button class="submenu-toggle" type="button" aria-label="Service pages" aria-expanded="false" aria-controls="service-menu"><span aria-hidden="true">⌄</span></button></div><ul id="service-menu" class="submenu">$serviceLinks</ul></li>
+          <li><a href="/faqs/" $faqsCurrent>FAQs</a></li>
+          <li><a href="/contact/" $contactCurrent>Contact</a></li>
+        </ul>
+        <a class="button button-gold nav-quote" href="/request-quote/">Request a Free Quote <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">$content</main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="footer-brand" href="/">THOMAS<span>PROPERTY SERVICES</span></a><p>Professional property care.<br>Cheshire and surrounding areas.</p><a href="$facebook">Find us on Facebook ↗</a></div>
+      <div><h2>Our services</h2><ul>$serviceLinks</ul></div>
+      <div><h2>Let’s talk</h2><a class="footer-phone" href="$phoneHref">$phone</a><a class="email-link" href="mailto:$email">$email</a><a href="/contact/">Contact us</a><a href="/request-quote/">Request a free quote</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© $year Thomas Property Services</span><a href="/privacy-policy/">Privacy policy · development draft</a></div>
+  </footer>
+  <div class="mobile-actions" aria-label="Quick contact"><a href="$phoneHref">Call $phone</a><a href="/request-quote/">Get a Quote <span aria-hidden="true">↗</span></a></div>
+</body>
+</html>
