@@ -149,6 +149,20 @@ class ContentTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'approved'):
             self.load()
 
+    def test_genuine_comparisons_are_labelled_and_extra_service_images_are_validated(self):
+        image = {**self.image(), 'presentation': 'comparison', 'caption': 'Test before and after.'}
+        self.write('images', [image])
+        self.write('content-settings', {'heroImage': None, 'introImage': 'test-photo', 'serviceImages': {}, 'serviceGalleries': {'test-service': ['test-photo']}})
+        content = self.load()
+        html = content.service_figure('test-photo')
+        self.assertIn('service-figure comparison', html)
+        self.assertIn('View larger before-and-after image', html)
+        self.assertNotIn('stock', html)
+        self.assertEqual(content.placements['intro'], 'test-photo')
+        self.write('content-settings', {'heroImage': None, 'serviceImages': {}, 'serviceGalleries': {'test-service': ['missing']}})
+        with self.assertRaisesRegex(ValueError, 'approved'):
+            self.load()
+
     def test_build_adds_then_removes_approved_pages_nav_and_assets(self):
         # Isolated checkout. No test content is written to the real data/assets.
         for folder in ('scripts', 'templates', 'assets', 'lib', 'data'):

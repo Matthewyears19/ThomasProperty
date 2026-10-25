@@ -192,6 +192,9 @@ textarea { resize: vertical; min-height: 125px; }
 .service-figure, .project-photo { margin: 0 0 30px; }
 .service-figure img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
 .service-figure figcaption, .project-photo figcaption { padding-block: 12px; color: var(--muted); font-size: .8rem; }
+.service-figure.comparison img { height: auto; aspect-ratio: auto; object-fit: contain; background: var(--white); }
+.card-photo.comparison img { object-fit: contain; background: var(--white); }
+.comparison-link { display: block; width: fit-content; padding-block: 10px; min-height: 44px; }
 .dark .service-figure figcaption { color: var(--white); }
 .hero .service-figure { margin-bottom: 0; }
 .hero .service-figure img { aspect-ratio: 4 / 5; }

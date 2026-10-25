@@ -1,7 +1,7 @@
 [
   {
     "id": "stock-painting",
-    "approved": true,
+    "approved": false,
     "permissionGranted": true,
     "kind": "stock",
     "src": "/assets/images/stock-painting-960.webp",
@@ -9,7 +9,7 @@
     "height": 960,
     "alt": "Hand applying paint to a wall with a roller",
     "source": "https://www.pexels.com/photo/994164/",
-    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "licence": "Pexels License — https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
     "credit": "Photo: Stephanie Ho / Pexels.",
     "variants": [
       {
@@ -20,7 +20,7 @@
   },
   {
     "id": "stock-woodwork",
-    "approved": true,
+    "approved": false,
     "permissionGranted": true,
     "kind": "stock",
     "src": "/assets/images/stock-woodwork-960.webp",
@@ -28,7 +28,7 @@
     "height": 641,
     "alt": "Wooden interior door and surrounding room finishes",
     "source": "https://www.pexels.com/photo/8135108/",
-    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "licence": "Pexels License — https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
     "credit": "Photo: Max Vakhtbovych / Pexels.",
     "variants": [
       {
@@ -39,7 +39,7 @@
   },
   {
     "id": "stock-improvements",
-    "approved": true,
+    "approved": false,
     "permissionGranted": true,
     "kind": "stock",
     "src": "/assets/images/stock-improvements-960.webp",
@@ -47,7 +47,7 @@
     "height": 640,
     "alt": "Home improvement tools and painting supplies arranged on a surface",
     "source": "https://www.pexels.com/photo/5481512/",
-    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "licence": "Pexels License — https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
     "credit": "Photo: Anastasia Shuraeva / Pexels.",
     "variants": [
       {
@@ -66,7 +66,7 @@
     "height": 1280,
     "alt": "Person pressure washing the exterior of a house",
     "source": "https://www.pexels.com/photo/5652626/",
-    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "licence": "Pexels License — https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
     "credit": "Photo: Caitlin Whealy / Pexels.",
     "variants": [
       {
@@ -85,7 +85,7 @@
     "height": 640,
     "alt": "A selection of property maintenance tools on a tiled floor",
     "source": "https://www.pexels.com/photo/3615716/",
-    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "licence": "Pexels License — https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
     "credit": "Photo: La Miko / Pexels.",
     "variants": [
       {
@@ -96,7 +96,7 @@
   },
   {
     "id": "stock-mould-removal",
-    "approved": true,
+    "approved": false,
     "permissionGranted": true,
     "kind": "stock",
     "src": "/assets/images/stock-mould-removal-960.webp",
@@ -104,11 +104,131 @@
     "height": 640,
     "alt": "Cleaning supplies and a gloved hand beside a bathroom sink; illustrative cleaning photograph",
     "source": "https://www.pexels.com/photo/4239113/",
-    "licence": "Pexels License \u2014 https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
+    "licence": "Pexels License — https://www.pexels.com/license/ (checked 25 October 2026; free commercial website use)",
     "credit": "Photo: Kaboompics / Pexels.",
     "variants": [
       {
         "src": "/assets/images/stock-mould-removal-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "real-blue-room",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "project",
+    "src": "/assets/images/real-blue-room-960.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "Blue-painted room with exposed timber ceiling beams and a white ceiling",
+    "caption": "My decorating work — blue room.",
+    "presentation": "photo",
+    "source": "Owner-supplied: website pics/finished blue room.jpg",
+    "licence": "Owner supplied and authorised website use in the chat on 25 October 2026.",
+    "variants": [
+      {
+        "src": "/assets/images/real-blue-room-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "real-white-landing",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "project",
+    "src": "/assets/images/real-white-landing-960.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "White-painted landing with white door frames and a dark handrail",
+    "caption": "My decorating work — white landing and woodwork.",
+    "presentation": "photo",
+    "source": "Owner-supplied: website pics/finished white landing.png",
+    "licence": "Owner supplied and authorised website use in the chat on 25 October 2026.",
+    "variants": [
+      {
+        "src": "/assets/images/real-white-landing-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "real-hallway-comparison",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "project",
+    "src": "/assets/images/real-hallway-comparison-960.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Side-by-side hallway photographs labelled Before and After, showing preparation and a white-painted finish",
+    "caption": "Hallway preparation and decorating — before and after.",
+    "presentation": "comparison",
+    "source": "Owner-supplied: website pics/hallway before and after.png",
+    "licence": "Owner supplied and authorised website use in the chat on 25 October 2026.",
+    "variants": [
+      {
+        "src": "/assets/images/real-hallway-comparison-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "real-ceiling-comparison",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "project",
+    "src": "/assets/images/real-ceiling-comparison-960.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Side-by-side landing photographs labelled Before and After, showing a marked ceiling and a white-painted ceiling",
+    "caption": "Landing ceiling — before and after.",
+    "presentation": "comparison",
+    "source": "Owner-supplied: website pics/mouldy ceiling before and after.png",
+    "licence": "Owner supplied and authorised website use in the chat on 25 October 2026.",
+    "variants": [
+      {
+        "src": "/assets/images/real-ceiling-comparison-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "real-sink-comparison",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "project",
+    "src": "/assets/images/real-sink-comparison-960.webp",
+    "width": 960,
+    "height": 1200,
+    "alt": "Side-by-side under-sink photographs labelled Before and After, showing dark surface staining and the area with a white finish",
+    "caption": "Under-sink area — before and after.",
+    "presentation": "comparison",
+    "source": "Owner-supplied: website pics/mould under kitchen sink before and after.png",
+    "licence": "Owner supplied and authorised website use in the chat on 25 October 2026.",
+    "variants": [
+      {
+        "src": "/assets/images/real-sink-comparison-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "real-neutral-room",
+    "approved": true,
+    "permissionGranted": true,
+    "kind": "project",
+    "src": "/assets/images/real-neutral-room-960.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Neutral-painted room with a bay window, white ceiling and timber-coloured skirting boards",
+    "caption": "My decorating work — neutral room with a bay window.",
+    "presentation": "photo",
+    "source": "Owner-supplied: website pics/Bright Neutral Room with Bay Window.png",
+    "licence": "Owner supplied and authorised website use in the chat on 25 October 2026.",
+    "variants": [
+      {
+        "src": "/assets/images/real-neutral-room-640.webp",
         "width": 640
       }
     ]

@@ -1,11 +1,17 @@
 {
-  "heroImage": "stock-painting",
+  "heroImage": "real-blue-room",
+  "introImage": "real-neutral-room",
   "serviceImages": {
-    "painting-decorating": "stock-painting",
-    "gloss-work-wood-finishing": "stock-woodwork",
-    "property-improvements": "stock-improvements",
+    "painting-decorating": "real-neutral-room",
+    "gloss-work-wood-finishing": "real-white-landing",
+    "property-improvements": "real-hallway-comparison",
     "jet-washing": "stock-jet-washing",
     "house-mot": "stock-maintenance",
-    "mould-removal": "stock-mould-removal"
+    "mould-removal": "real-ceiling-comparison"
+  },
+  "serviceGalleries": {
+    "mould-removal": [
+      "real-sink-comparison"
+    ]
   }
 }

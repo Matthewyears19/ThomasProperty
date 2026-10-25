@@ -1,5 +1,22 @@
 # Asset register
 
+## Owner-supplied photographs — current placements
+
+Six real photographs were supplied in `website pics/` and explicitly authorised for website use by the owner. Original files remain unchanged. `scripts/prepare_photos.py` exports proportional 640px/960px WebP copies, applies orientation metadata and leaves metadata out of public derivatives. It does not retouch, generate or alter the depicted work. Pillow is needed only to rerun that authoring helper; the normal website build still uses the Python standard library only.
+
+| Original | Placement |
+| --- | --- |
+| `finished blue room.jpg` | Homepage hero |
+| `Bright Neutral Room with Bay Window.png` | Painting/decorating card and detail, homepage introduction |
+| `finished white landing.png` | Gloss/woodwork card and detail |
+| `hallway before and after.png` | Property improvements card and detail |
+| `mouldy ceiling before and after.png` | Mould removal card and detail |
+| `mould under kitchen sink before and after.png` | Additional before/after image on the mould removal page |
+
+Comparison composites keep both sides and the original Before/After labels visible, with an option to view a larger image. Captions describe what is visible, without dates, locations, treatment methods or permanent-removal guarantees. They are labelled as my work rather than stock. No standalone project stories or client details were invented.
+
+Jet washing and House MOT retain clearly labelled stock photographs because no supplied photograph establishes those services. Replaced stock entries remain in the register as unapproved drafts and are not copied into the public build. See `data/content-settings.json` for current assignments; `introImage` controls the homepage introduction and `serviceGalleries` adds supplementary service images.
+
 ## Royalty-free illustrative photographs — 25 October 2026
 
 The owner requested stock placeholders. The following photographs are downloaded locally in 640px and 1200px JPEG sizes, with responsive sources and visible stock labels. All six were visually inspected. They are illustrative only and must not be used as a completed-work portfolio. The [Pexels License](https://www.pexels.com/license/) permits free commercial website use; no attribution is required, but photographer credits are included. These are royalty-free under that licence, not claimed to be public domain. No recurring external image requests are needed.

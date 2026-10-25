@@ -57,7 +57,7 @@ test('configuration fails closed and public config never exposes secrets', async
     assert.equal(configurationReady({...env, [key]: ''}), false, key);
   }
   const publicConfig = await onRequestGet({env}).json();
-  assert.deepEqual(publicConfig, {enabled: true, siteKey: 'test-site-key'});
+  assert.deepEqual(publicConfig, {enabled: true, siteKey: 'test-site-key', missing: []});
   const result = await run({...env, ENQUIRIES_ENABLED: 'false'}, fixture(), provider());
   assert.equal(result.status, 503);
   assert.equal(result.body.ok, false);

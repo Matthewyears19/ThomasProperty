@@ -71,6 +71,9 @@ class Content:
             require(image.get('kind') in ('project', 'service', 'stock'), f'{image["id"]}: invalid image kind')
             for key in ('alt', 'source', 'licence'):
                 nonempty(image, key)
+            require(image.get('presentation', 'photo') in ('photo', 'comparison'), 'Unknown image presentation')
+            if 'caption' in image:
+                nonempty(image, 'caption')
             require(type(image.get('width')) is int and type(image.get('height')) is int and image['width'] > 0 and image['height'] > 0, 'Positive integer image dimensions required')
             path = self.image_path(image.get('src'))
             require(image_dimensions(path) == (image['width'], image['height']), f'{image["id"]}: dimensions do not match the file')
@@ -145,10 +148,18 @@ class Content:
         self.placements = {}
         if self.settings.get('heroImage'):
             self.placements['hero'] = self.settings['heroImage']
+        if self.settings.get('introImage'):
+            self.placements['intro'] = self.settings['introImage']
         for slug, image_id in self.settings['serviceImages'].items():
             require(slug in self.services, f'Unknown service image placement: {slug}')
             self.placements[slug] = image_id
         require(all(isinstance(image_id, str) and image_id in self.images for image_id in self.placements.values()), 'Image placements must reference approved, permissioned images')
+        self.service_galleries = self.settings.get('serviceGalleries', {})
+        require(isinstance(self.service_galleries, dict), 'serviceGalleries must be an object')
+        for slug, image_ids in self.service_galleries.items():
+            require(slug in self.services and isinstance(image_ids, list), 'Service galleries must use existing service slugs and image lists')
+            require(all(isinstance(image_id, str) and image_id in self.images for image_id in image_ids), 'Service galleries must reference approved images')
+            require(len(image_ids) == len(set(image_ids)), 'Service gallery images must be unique')
 
     def records(self, name):
         items = json.loads((self.root / 'data' / f'{name}.json').read_text(encoding='utf-8-sig'))
@@ -178,9 +189,13 @@ class Content:
 
     def service_figure(self, image_id, *, hero=False):
         image = self.images[image_id]
-        label = 'Illustrative service photograph — not a completed Thomas Property Services project.' if image['kind'] == 'stock' else ('Completed Thomas Property Services work.' if image['kind'] == 'project' else 'Service photograph — not presented as a completed customer project.')
+        label = 'Illustrative service photograph — not a completed Thomas Property Services project.' if image['kind'] == 'stock' else ('My work — photograph supplied by Thomas Property Services.' if image['kind'] == 'project' else 'Service photograph — not presented as a completed customer project.')
+        if image.get('caption'):
+            label = image['caption'] + (' ' + label if image['kind'] == 'stock' else '')
         attribution = f' {image["credit"]}' if image.get('credit') else ''
-        return '<figure class="service-figure">' + self.picture(image_id, hero=hero) + f'<figcaption>{text(label + attribution)}</figcaption></figure>'
+        classes = 'service-figure comparison' if image.get('presentation') == 'comparison' else 'service-figure'
+        larger = f'<a class="comparison-link" href="{text(image["src"])}">View larger before-and-after image</a>' if image.get('presentation') == 'comparison' else ''
+        return f'<figure class="{classes}">' + self.picture(image_id, hero=hero) + f'<figcaption>{text(label + attribution)}{larger}</figcaption></figure>'
 
     def review_cards(self, reviews):
         cards = []

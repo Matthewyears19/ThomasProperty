@@ -1,5 +1,7 @@
 # Phase 3 — content and trust system
 
+Latest imagery update: owner-supplied real photographs now replace stock on the hero, introduction and painting/woodwork/property-improvement/mould-removal service sections. See `docs/ASSETS.md` for all six placements. Before/after composites preserve the full image and labels. Only jet washing and House MOT retain labelled stock. Standalone gallery projects remain unpublished until project records are supplied; these image replacements do not invent project stories or client details.
+
 Update: the owner subsequently requested royalty-free illustrative photography and a Mould Removal service. Six locally hosted Pexels photographs now fill the hero, service cards/detail pages and introduction imagery. All remain labelled as stock; the genuine project/review arrays remain empty. The base build now has thirteen pages and six service categories. See `docs/ASSETS.md` for sources and licence details. The original preparation-only status below records the earlier handover.
 
 ## Status
