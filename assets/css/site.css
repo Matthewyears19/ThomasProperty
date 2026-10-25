@@ -1,14 +1,14 @@
 :root {
-  --navy: #172c46;
-  --gold: #c4a15b;
+  --navy: #012a58;
+  --gold: #e0bd87;
   --paper: #f7f6f2;
   --white: #ffffff;
   --ink: #202b36;
   --muted: #52606b;
   --line: #dcdedb;
-  --navy-light: #294159;
+  --navy-light: #183e69;
   --focus: #145b9b;
-  --shadow: 0 12px 36px rgb(23 44 70 / 8%);
+  --shadow: 0 12px 36px rgb(1 42 88 / 8%);
   --serif: Georgia, 'Times New Roman', serif;
   --sans: 'Segoe UI', Arial, sans-serif;
 }
@@ -133,6 +133,15 @@ textarea { resize: vertical; min-height: 125px; }
 .form-panel details { margin-top: 24px; }
 .form-panel summary { cursor: pointer; min-height: 44px; }
 .form-panel details .fields { margin-top: 20px; }
+.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.field-error { display: block; font-size: .85rem; color: var(--ink); font-weight: 600; }
+[aria-invalid='true'] { border: 2px solid var(--navy); }
+.form-errors { margin-bottom: 24px; }
+.form-errors ul { margin-bottom: 0; }
+#spam-check { min-height: 72px; margin-bottom: 16px; }
+#quote-submit:disabled, #quote-fields:disabled { opacity: .65; }
+#quote-submit:disabled { cursor: not-allowed; transform: none; }
+#form-errors, #quote-success, input, select, textarea { scroll-margin-top: 140px; }
 .faq-list { max-width: 850px; }
 .faq-list details { border-bottom: 1px solid var(--line); padding: 22px 0; }
 .faq-list summary { cursor: pointer; font-size: 1.15rem; color: var(--navy); padding-right: 20px; min-height: 44px; }

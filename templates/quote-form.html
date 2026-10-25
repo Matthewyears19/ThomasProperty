@@ -1,0 +1,31 @@
+<div class="form-panel">
+  <h2>Your project details</h2>
+  <p id="form-status" class="notice" role="status" aria-live="polite">Checking online enquiry availability. You can also call <a href="tel:+447410928465">07410 928465</a> or <a href="mailto:thomaspropertyservicesuk@gmail.com">email us</a>.</p>
+  <noscript><p>Online enquiries require JavaScript for spam protection. Please telephone or email instead.</p></noscript>
+  <form id="quote-form" action="/api/enquiry" method="post" novalidate aria-describedby="form-status">
+    <div id="form-errors" class="notice form-errors" role="alert" tabindex="-1" hidden></div>
+    <fieldset id="quote-fields" disabled>
+      <legend>Your enquiry</legend>
+      <div class="fields">
+        <div class="field-wide"><label for="name">Full name (required)</label><input id="name" name="name" autocomplete="name" maxlength="100" required><span class="field-error" id="name-error"></span></div>
+        <div><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" aria-describedby="contact-hint"><span class="field-error" id="email-error"></span></div>
+        <div><label for="phone">Telephone number</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30" aria-describedby="contact-hint"><span class="field-error" id="phone-error"></span></div>
+        <p class="hint field-wide" id="contact-hint">Provide an email address or telephone number, or both. An email acknowledgement is only possible if you provide an email address.</p>
+        <div class="field-wide"><label for="service">Service required (required)</label><select id="service" name="service" required><option value="">Select a service</option>$options</select><span class="field-error" id="service-error"></span></div>
+        <div class="field-wide"><label for="description">Short description of the work (required)</label><textarea id="description" name="description" maxlength="3000" required></textarea><span class="field-error" id="description-error"></span></div>
+      </div>
+      <details id="additional-details"><summary>Additional information (optional)</summary><div class="fields">
+        <div><label for="postcode">Property postcode</label><input id="postcode" name="postcode" autocomplete="postal-code" maxlength="12"><span class="field-error" id="postcode-error"></span></div>
+        <div><label for="timeframe">Preferred timeframe</label><input id="timeframe" name="timeframe" placeholder="e.g. this autumn" maxlength="100"><span class="field-error" id="timeframe-error"></span></div>
+        <div class="field-wide"><label for="details">Additional details</label><textarea id="details" name="details" maxlength="3000"></textarea><span class="field-error" id="details-error"></span></div>
+      </div></details>
+      <div class="honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <p class="hint">We use your information to respond to your enquiry. Read our <a href="/privacy-policy/">privacy notice</a>. Please do not include sensitive personal information.</p>
+      <div id="spam-check" aria-label="Spam protection"></div>
+      <p class="hint" id="spam-hint">Cloudflare Turnstile protects this form against spam.</p>
+      <button id="quote-submit" class="button button-navy" type="submit" disabled>Send enquiry</button>
+    </fieldset>
+  </form>
+  <button id="retry-setup" class="button button-outline" type="button" hidden>Retry online form</button>
+  <section id="quote-success" tabindex="-1" hidden><h2>Thank you for your enquiry.</h2><p>Your message has been received. We aim to respond within 48 hours.</p><p id="acknowledgement-status"></p><p>For a more urgent enquiry, telephone <a href="tel:+447410928465">07410 928465</a>.</p><button id="new-enquiry" class="button button-outline" type="button">Start another enquiry</button></section>
+</div>

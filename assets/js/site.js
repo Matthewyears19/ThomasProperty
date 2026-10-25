@@ -48,6 +48,8 @@ document.addEventListener('keydown', (event) => {
   } else if (mobile.matches && !nav.hidden) closeMenu(true);
 });
 document.addEventListener('click', (event) => {
+  // Local hook only; no analytics integration or customer data is transmitted.
+  if (event.target.closest('a[href^="tel:"]')) document.dispatchEvent(new CustomEvent('tps:call-intent', {detail: {event: 'call_intent'}}));
   if (!event.target.closest('.services-nav')) closeSubmenu();
   if (mobile.matches && !event.target.closest('.site-header')) closeMenu();
 });
@@ -56,7 +58,7 @@ document.addEventListener('focusin', (event) => {
   if (mobile.matches && !event.target.closest('.site-header')) closeMenu();
 });
 
-// Phase 1 only: select the relevant draft service. No network or storage.
+// Select a known service from contextual quotation links.
 const serviceSelect = document.querySelector('#service');
 if (serviceSelect) {
   const service = new URLSearchParams(window.location.search).get('service');

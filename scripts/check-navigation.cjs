@@ -16,7 +16,8 @@ function element() {
 const menu = element(), nav = element(), subButton = element(), submenu = element(), first = element();
 const document = {activeElement: null, events: {}, documentElement: {classList: {add() {}}},
   querySelector(s) { return ({'.menu-toggle': menu, '#main-nav': nav, '.submenu-toggle': subButton, '#service-menu': submenu})[s] || null; },
-  addEventListener(k, fn) { this.events[k] = fn; }
+  addEventListener(k, fn) { this.events[k] = fn; },
+  dispatchEvent() {}
 };
 const media = {matches: false, addEventListener(k, fn) { this.change = fn; }};
 vm.runInNewContext(fs.readFileSync('assets/js/site.js', 'utf8'), {document, window: {matchMedia() { return media; }}});

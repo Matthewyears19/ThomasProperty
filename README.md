@@ -1,52 +1,65 @@
-# Thomas Property Services — Phase 1
+# Thomas Property Services — website source
 
-Responsive static website foundation built from the supplied Website Development Specification v1.0. No frontend framework, npm packages, third-party fonts or runtime dependencies. No deployment or DNS changes have been made.
+Phase 1 website foundation and Phase 2 enquiry code, built from the supplied development specification. HTML, CSS and vanilla JavaScript; no frontend framework or runtime npm packages. Python is used only to generate static pages. Cloudflare Pages Functions handle enquiries once the external services are configured.
 
-## Run locally
+**Start with [the Phase 2 checklist](docs/PHASE-2.md).** Local tests pass; real Cloudflare binding, spam protection and email-delivery tests remain outstanding. No deployment, push or account changes were made by this implementation.
 
-Requires Python 3.10+; Node is optional for the navigation checks.
+## Build and check
+
+Python 3.10+ is required to build. Node 24 is recommended for dependency-free tests, which use `node:sqlite`.
 
 ```powershell
 python scripts/build.py
 python scripts/check.py
-node --check assets/js/site.js
 node scripts/check-navigation.cjs
+node --test tests/*.test.mjs
 python -m http.server 8000 --directory dist --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8000/ . Stop the server with Ctrl+C. Rebuild after editing source files; refresh the browser. Root-relative links require HTTP serving, rather than opening HTML files directly.
+Open http://127.0.0.1:8000/ . This static server previews pages, but cannot run Functions: online enquiries correctly remain unavailable. Stop with Ctrl+C. Rebuild and refresh after editing source. Root-relative links require HTTP serving, rather than opening HTML files directly. Full local Cloudflare runtime instructions are in the Phase 2 checklist.
 
-## Structure and implemented pages
+## Source structure
 
-- `data/business.json`: confirmed business name, contact details, coverage, supplied Facebook link and logo path.
-- `data/services.json`: five services, descriptions, scope, customer benefits and quotation selections.
-- `templates/page.html`: shared semantic header, service submenu, footer and mobile contact controls.
-- `scripts/build.py`: small standard-library static generator. Outputs twelve complete HTML documents to ignored `dist/`, including `/`, `/services/`, all five requested service routes, `/contact/`, `/request-quote/`, `/faqs/`, `/privacy-policy/` and `404.html`.
-- `assets/css/site.css`: provisional colour tokens, system typography, responsive layouts, focus styles and reduced-motion support.
-- `assets/js/site.js`: accessible collapsible navigation, Escape/focus handling and service selection from quotation links. Content and contact links are available without JavaScript.
-- `assets/images/logo.jpg`: unaltered copy of the supplied logo, displayed through a compact crop that keeps its lettering visible. The original remains at repository root.
-- `data/reviews.json` and `data/projects.json`: empty reserved content files for Phase 3; no gallery or testimonial rendering is claimed in Phase 1.
-- `scripts/check.py`, `scripts/check-navigation.cjs`: repeatable structural and interaction checks.
-- `docs/PHASE-1.md`: assumptions, validation and next steps.
+- `data/business.json`: confirmed business details and supplied Facebook link.
+- `data/services.json`: five services, plus clearly labelled draft House MOT/ongoing maintenance scope.
+- `templates/page.html`: shared navigation, footer and mobile contact controls.
+- `templates/quote-form.html`: accessible enquiry form and genuine response states.
+- `templates/privacy-content.html`: privacy draft; retention periods/processor arrangements need confirmation.
+- `scripts/build.py`: generates twelve HTML documents, assets, security headers and development SEO files in ignored `dist/`.
+- `assets/css/site.css`: logo-sampled blue/gold design, responsive layouts and accessibility styles.
+- `assets/js/site.js`: mobile navigation, service disclosure and quote preselection.
+- `assets/js/enquiry.js`: validation, Turnstile setup, loading/error/success/retry states and non-persistent drafts.
+- `lib/validation.mjs`: validation shared by browser/server; build copies it into public assets.
+- `lib/enquiry.mjs`: secure enquiry handling and plain-text business/acknowledgement templates.
+- `functions/api/enquiry.js` and `functions/api/form-config.js`: Cloudflare Pages endpoints.
+- `migrations/0001_enquiries.sql`: D1 tables for rate limits and duplicate protection; no enquiry content in D1.
+- `tests/`: API, SQLite, validation and frontend state tests with simulated external providers.
+- `wrangler.example.jsonc`: optional local development template; not production configuration.
+- `docs/ASSETS.md`: supplied logo/colour sampling and missing photography register.
+- `docs/PHASE-1.md`: historical Phase 1 handover, superseded by Phase 2 where behaviour changed.
 
-Generated HTML is intentionally not maintained in Git. This avoids repeating editable contact information and shared components across twelve files. Python is a build tool only: the output is ordinary HTML/CSS/JavaScript. No JavaScript rendering is needed for page content or SEO metadata.
+Generated pages cover `/`, `/services/`, all five service routes, `/contact/`, `/request-quote/`, `/faqs/`, `/privacy-policy/` and `404.html`. Shared editable content is generated at build time, with complete HTML available without client-side rendering. The form requires JavaScript for secure spam protection; telephone/email links remain available without it.
 
-## Editing content and assets
+## Cloudflare Pages setup
 
-Update contact details in `data/business.json`, service copy in `data/services.json`, and page-specific copy in `scripts/build.py`; rebuild. Keep claims consistent with the specification. Add approved, optimised photographs under `assets/images/`, replace the placeholder markup in the generator and include image alt text, explicit dimensions and responsive sources. Lazy-load below-the-fold images; do not lazy-load the future hero image. Record permission/licence information in `docs/ASSETS.md`.
+For an existing Git-connected project: repository root is the project root, build command is `python scripts/build.py`, output is `dist`. Keep `functions/` at repository root so Cloudflare compiles it. Dashboard drag-and-drop uploads do not compile this Functions directory. Direct Upload projects can use Wrangler; migrating to Git integration requires a new Git-integrated project. See the Phase 2 guide before changing anything.
 
-Before adding reviews, obtain publication permission and retain verified text, customer display name/initials, optional verified date, service, source and permission record. Before adding projects, obtain authorised title, category, optional general location, description and image permissions. Leave the JSON files empty until verified content is available. A gallery/review renderer and navigation links will be added in Phase 3; adding JSON alone does not publish content. Do not add fictional examples to the live content files.
+Configure the D1 binding, Turnstile and Resend values listed in `.env.example`; set secrets in Cloudflare, never in public assets, Git, chat or command arguments. The form fails closed when required settings are missing or `ENQUIRIES_ENABLED` is not `true`. Preview environments should use separate settings and test resources. Changes to bindings or secrets need a redeploy.
 
-## Phase boundaries
+A custom 404 document is supplied. Python's preview server returns its own generic page for unknown routes; inspect `/404.html` to review the designed layout.
 
-The quotation page is an explicitly labelled input layout with no submission mechanism. It transmits and stores nothing; call/email links work now. Phase 2 will implement client/server validation, Turnstile verification, rate limiting, idempotent email handling, optional acknowledgements and genuine server-confirmed feedback. Do not advertise online submission as operational yet.
+Development output remains non-indexable: HTML robots tags, `robots.txt` and Cloudflare response headers block indexing; the sitemap is valid but empty. Canonicals use the confirmed future business domain without configuring it. Public sitemap/structured data and an analytics provider remain later-phase work. Only local, non-personal conversion hooks are present. Missing photography and privacy/service scope review notices remain visible.
 
-The provisional palette follows the requested navy/white/gold tokens. Logo colours remain unmodified; final colour sampling and approval are outstanding. The imagery placeholders are intentional. Reviews and Our Work are omitted from navigation until genuine content is approved. The basic FAQ page uses confirmed specification answers. The privacy page is a development draft and requires operator review.
+## Updating content
 
-## Preview and future hosting
+Change business information in `data/business.json`, service descriptions in `data/services.json` and page copy in `scripts/build.py` or templates; rebuild and test. Actual logo colours now drive CSS and theme metadata; see the asset register. The original logo remains unchanged.
 
-All output is development-only: HTML robots metadata, `robots.txt` and Cloudflare `_headers` block indexing; the sitemap is valid but empty because no pages are currently indexable. Canonical and Open Graph URLs use the confirmed future domain; this does not configure the domain. Public sitemap population, structured data and analytics remain Phase 4 work.
+Add approved optimised photographs under `assets/images/`, replace placeholder markup, and record source/licence/permission details. Include alt text, explicit image dimensions and responsive sources. Lazy-load below-the-fold images; do not lazy-load the future hero. Do not present stock images as completed work.
 
-For a future explicitly authorised Cloudflare Pages preview, use `python scripts/build.py` as the build command and `dist` as the output directory, with Python available in the build image. A top-level `404.html` is supplied for correct Cloudflare unknown-route handling. Python's simple local server returns its own generic 404 for unknown routes; view `/404.html` to review the custom layout.
+Reviews and project JSON files are intentionally empty. Before adding reviews, obtain permission and verified text, display name/initials, optional date, service and source. Before adding projects, obtain authorised titles, categories, descriptions and photographs, with general locations only where authorised. Phase 3 must add rendering/navigation; inserting JSON alone does not publish content. Never invent content or add fictional examples to these files.
 
-Do not connect the production domain, change DNS or publish without explicit approval. Before launch, remove all placeholders only after replacing them with verified content, finalise privacy information and production robots directives, and run the launch checks. Keep preview environments non-indexable. Reverting source to a reviewed Git commit and rebuilding provides the local rollback path; once hosting exists, restore the previous approved deployment in its dashboard. Secrets belong in hosting environment settings, never source or public files. `.env.example` records the Phase 1 absence of integrations.
+## Publication and rollback
+
+Review and test before pushing: Git-connected Cloudflare projects may automatically deploy the configured production branch. No production release or domain/DNS change is authorised by this repository. Keep development indexing blocks until an approved launch review, and remove placeholders only after supplying verified replacements.
+
+To undo a release, restore the previously approved deployment in Cloudflare, then revert the responsible source commit and rebuild. Avoid retrying uncertain enquiries with changed content; telephone follow-up prevents duplicate email requests. Account credentials should remain in hosting settings and ignored local `.dev.vars` files, with separate preview/production resources as appropriate.

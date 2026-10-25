@@ -1,37 +1,87 @@
 [
   {
-    "slug": "painting-decorating", "name": "Painting and Decorating", "short": "A fresh perspective, a careful finish.", "symbol": "01",
+    "slug": "painting-decorating",
+    "name": "Painting and Decorating",
+    "short": "A fresh perspective, a careful finish.",
+    "symbol": "01",
     "intro": "Refresh your home or property with considered colour and careful preparation. Enquire about internal and external painting and decorating across Cheshire and surrounding areas.",
-    "work": ["Internal and external painting, subject to the job", "Surface preparation and filling", "Painting walls and ceilings", "Finishing touches for a considered result"],
+    "work": [
+      "Internal and external painting, subject to the job",
+      "Surface preparation and filling",
+      "Painting walls and ceilings",
+      "Finishing touches for a considered result"
+    ],
     "benefit": "Good decoration begins before the first coat. We focus on preparation, clean workmanship and respect for your property, with the scope and finish agreed as part of your quotation.",
-    "note": "Tell us which rooms or exterior surfaces need attention, their condition and your preferred timeframe.", "quote": "Painting and Decorating"
+    "note": "Tell us which rooms or exterior surfaces need attention, their condition and your preferred timeframe.",
+    "quote": "Painting and Decorating"
   },
   {
-    "slug": "gloss-work-wood-finishing", "name": "Gloss Work and Wood Finishing", "short": "The details that bring a room together.", "symbol": "02",
+    "slug": "gloss-work-wood-finishing",
+    "name": "Gloss Work and Wood Finishing",
+    "short": "The details that bring a room together.",
+    "symbol": "02",
     "intro": "Give doors, frames and skirting boards a considered finish. Enquire about painting, gloss finishes and varnishing for suitable wooden surfaces.",
-    "work": ["Doors and door frames", "Skirting boards and interior woodwork", "Painting and gloss finishes", "Varnishing suitable wooden surfaces"],
+    "work": [
+      "Doors and door frames",
+      "Skirting boards and interior woodwork",
+      "Painting and gloss finishes",
+      "Varnishing suitable wooden surfaces"
+    ],
     "benefit": "Well-finished woodwork helps a space feel complete. Preparation and a suitable finish will be discussed for the surfaces involved. Specialist restoration is not currently advertised.",
-    "note": "Let us know the type of woodwork, its current finish and the look you would like to achieve.", "quote": "Gloss Work and Wood Finishing"
+    "note": "Let us know the type of woodwork, its current finish and the look you would like to achieve.",
+    "quote": "Gloss Work and Wood Finishing"
   },
   {
-    "slug": "property-improvements", "name": "Property Improvements", "short": "Practical care for the spaces you use.", "symbol": "03",
+    "slug": "property-improvements",
+    "name": "Property Improvements",
+    "short": "Practical care for the spaces you use.",
+    "symbol": "03",
     "intro": "From filling and painting to general cleaning and garden work, discuss the smaller improvements that can help your property feel cared for.",
-    "work": ["Filling and surface preparation", "Painting and finishing", "General cleaning", "Garden work and minor property improvements"],
+    "work": [
+      "Filling and surface preparation",
+      "Painting and finishing",
+      "General cleaning",
+      "Garden work and minor property improvements"
+    ],
     "benefit": "Bring your list of jobs together in one enquiry. We can discuss what is suitable, agree the scope and provide a free quotation. Electrical, gas, plumbing and other regulated work are not included in this advertised service.",
-    "note": "A short list of the work and the condition of the property will help us understand your enquiry.", "quote": "Property Improvements"
+    "note": "A short list of the work and the condition of the property will help us understand your enquiry.",
+    "quote": "Property Improvements"
   },
   {
-    "slug": "jet-washing", "name": "Jet Washing and Exterior Cleaning", "short": "A cleaner welcome to your property.", "symbol": "04",
+    "slug": "jet-washing",
+    "name": "Jet Washing and Exterior Cleaning",
+    "short": "A cleaner welcome to your property.",
+    "symbol": "04",
     "intro": "Enquire about jet washing and cleaning suitable outdoor surfaces. The right approach starts with understanding the surface and its condition.",
-    "work": ["Review of the outdoor surfaces you want cleaned", "Jet washing where suitable", "General exterior cleaning", "An agreed scope based on surface condition"],
+    "work": [
+      "Review of the outdoor surfaces you want cleaned",
+      "Jet washing where suitable",
+      "General exterior cleaning",
+      "An agreed scope based on surface condition"
+    ],
     "benefit": "Exterior cleaning can freshen up outdoor spaces. Suitability is assessed for each enquiry; specialist treatments and surface guarantees are not assumed.",
-    "note": "Describe the surface, approximate area and any fragile or damaged sections so we can discuss a suitable approach.", "quote": "Jet Washing"
+    "note": "Describe the surface, approximate area and any fragile or damaged sections so we can discuss a suitable approach.",
+    "quote": "Jet Washing"
   },
   {
-    "slug": "house-mot", "name": "House MOT and Landlord Maintenance", "short": "A practical approach to property upkeep.", "symbol": "05",
-    "intro": "A general maintenance review for homeowners, landlords and letting agents. Enquire about a one-off visit or discuss an ongoing property upkeep arrangement.",
-    "work": ["One-off property condition and maintenance visits", "Discussion of general upkeep needs", "Enquiries about ongoing maintenance", "Scope, deliverables and frequency agreed individually"],
-    "benefit": "Discuss the maintenance needs of a property and plan the next steps. The House MOT checklist and recurring arrangements remain to be confirmed. This service does not replace a structural survey, gas safety certificate, electrical inspection or any statutory inspection.",
-    "note": "Choose a one-off House MOT or ongoing property maintenance when requesting a quotation.", "quote": "One-off House MOT"
+    "slug": "house-mot",
+    "name": "House MOT and Landlord Maintenance",
+    "short": "A practical approach to property upkeep.",
+    "symbol": "05",
+    "intro": "A practical visual maintenance review for homeowners, landlords and letting agents, with a choice of a one-off visit or agreed ongoing upkeep. The proposed scope below is a draft for review.",
+    "work": [
+      "Visual review of accessible internal and external areas, within an agreed scope",
+      "Check for visible wear, decorating needs and minor maintenance jobs",
+      "A short written summary of observations and suggested priorities",
+      "Separate quotations for agreed repairs, preparation, cleaning or decorating"
+    ],
+    "benefit": "Identify visible upkeep needs and plan practical next steps. Findings are observations rather than a specialist diagnosis. Any follow-up work, materials and visits are agreed and quoted separately.",
+    "note": "Choose a one-off House MOT or ongoing property maintenance. The proposed scope is awaiting final business review.",
+    "quote": "One-off House MOT",
+    "draftScope": {
+      "oneOff": "One-off House MOT: an agreed visual walk-through of safely accessible areas, covering decorating condition, visible wear to woodwork, general cleaning needs, garden upkeep and suitable exterior cleaning. A short written summary will list observations, suggested priorities and work that may need a specialist. Any maintenance work is quoted separately.",
+      "ongoing": "Ongoing maintenance: scheduled visual reviews and an agreed programme of minor upkeep, such as filling, painting, general cleaning, garden work and suitable exterior cleaning. Visit frequency, access, materials, individual jobs and charges are agreed in writing. Additional or urgent work needs a separate agreement; no emergency response time is promised.",
+      "exclusions": "The House MOT is not a structural survey, safety certification or a guarantee that a property is free of defects. It excludes hidden or inaccessible areas, invasive testing, work at unsafe heights, gas, electrical and plumbing work, and statutory inspections. Suspected specialist issues should be assessed by an appropriately qualified professional."
+    }
   }
 ]

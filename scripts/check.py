@@ -21,7 +21,7 @@ class Page(HTMLParser):
             self.ids.append(attrs['id'])
 
 pages = [Page(p) for p in ROOT.rglob('*.html')]
-assert len(pages) == 12, 'Expected twelve Phase 1 pages'
+assert len(pages) == 12, 'Expected twelve pages'
 titles = set()
 descriptions = set()
 for p in pages:
@@ -36,7 +36,10 @@ for p in pages:
     assert len(p.ids) == len(set(p.ids)), f'Duplicate ID: {p.path}'
     assert any(t == 'link' and a.get('rel') == 'canonical' for t,a in p.tags)
     assert 'noindex, nofollow' in source
-    assert '<form' not in source, 'Phase 1 must have no submission path'
+    if p.path.parent.name == 'request-quote':
+        assert 'action="/api/enquiry"' in source
+        assert 'id="quote-fields" disabled' in source, 'Fail closed until configuration loads'
+        assert 'src="/assets/js/enquiry.js"' in source
     for t,a in p.tags:
         if t == 'img':
             assert all(k in a for k in ('alt', 'width', 'height'))
