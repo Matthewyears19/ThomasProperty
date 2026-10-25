@@ -1,7 +1,7 @@
 {
   "privacyNoticeApproved": false,
   "serviceScopeApproved": false,
-  "liveEmailTestsPassed": false,
+  "liveEmailTestsPassed": true,
   "previewReviewPassed": false,
   "productionReleaseApproved": false
 }

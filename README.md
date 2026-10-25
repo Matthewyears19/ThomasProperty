@@ -1,5 +1,7 @@
 # Thomas Property Services — website source
 
+**Final owner checklist: [FINAL-TO-DO.md](docs/FINAL-TO-DO.md).** Contact now has a general enquiry form, and the quote route accepts both questions and service enquiries. Work descriptions prompt for the area/postcode. Business copy uses I/me/my. The owner has confirmed successful live enquiry/email testing; the public form is enabled. Production indexing remains the outstanding launch step after final content/privacy/release approval.
+
 **Latest work: [Phases 4–5 handover](docs/PHASE-4-5.md).** SEO/schema/social metadata, guarded production sitemap generation, optional first-party aggregate analytics and repeatable release checks are implemented. Run `python scripts/verify.py`. Analytics remains off until its migration/configuration and privacy review are complete; production indexing remains blocked by default. No production deployment or domain changes have been made.
 
 Phase 1 website foundation, Phase 2 enquiry code and Phase 3 content systems, built from the supplied development specification. HTML, CSS and vanilla JavaScript; no frontend framework or runtime npm packages. Python is used only to generate static pages. Cloudflare Pages Functions handle enquiries once the external services are configured.

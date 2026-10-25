@@ -118,6 +118,16 @@ test('phone-only enquiry sends no acknowledgement email', async () => {
   assert.equal(result.body.acknowledgement, false);
   assert.equal(JSON.parse(mock.calls[1].options.body).length, 1);
 });
+test('general questions are accepted without a property postcode and retain message context in email', async () => {
+  const mock = provider();
+  const result = await run(environment(), {...fixture(), service: 'General enquiry', description: 'Could you tell me more about the services you offer?', postcode: ''}, mock);
+  assert.equal(result.status, 200);
+  assert.equal(result.body.ok, true);
+  const email = JSON.parse(mock.calls[1].options.body)[0];
+  assert.match(email.subject, /General enquiry/);
+  assert.match(email.text, /Enquiry or work details:/);
+  assert.match(email.text, /Could you tell me more/);
+});
 test('successful retries return success without another provider or Turnstile call', async () => {
   const env = environment(), data = fixture(), mock = provider();
   await run(env, data, mock);

@@ -28,8 +28,12 @@ class SEOTest(unittest.TestCase):
             self.assertEqual(len(ET.parse(out / 'sitemap.xml').getroot()), 0)
 
     def test_production_requires_all_release_checks(self):
-        with self.assertRaisesRegex(ValueError, 'Production build blocked'):
-            SEO(ROOT, self.business, self.services, mode='production')
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'data').mkdir()
+            (root / 'data/release.json').write_text('{}')
+            with self.assertRaisesRegex(ValueError, 'Production build blocked'):
+                SEO(root, self.business, self.services, mode='production')
 
     def test_approved_production_sitemap_excludes_404(self):
         with tempfile.TemporaryDirectory() as directory:

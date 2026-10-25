@@ -45,7 +45,7 @@ class SEO:
             if route.startswith('/services/') and route != '/services/':
                 crumbs.append({'@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': self.origin + '/services/'})
             if route.startswith('/our-work/') and route != '/our-work/':
-                crumbs.append({'@type': 'ListItem', 'position': 2, 'name': 'Our Work', 'item': self.origin + '/our-work/'})
+                crumbs.append({'@type': 'ListItem', 'position': 2, 'name': 'My Work', 'item': self.origin + '/our-work/'})
             crumbs.append({'@type': 'ListItem', 'position': len(crumbs) + 1, 'name': title, 'item': url})
             graph.append({'@type': 'BreadcrumbList', '@id': url + '#breadcrumbs', 'itemListElement': crumbs})
             webpage['breadcrumb'] = {'@id': url + '#breadcrumbs'}

@@ -48,10 +48,16 @@ for p in pages:
         graph = json.loads(schemas[0])
         assert graph['@context'] == 'https://schema.org'
         assert not any(key in schemas[0] for key in ('aggregateRating', 'openingHours', 'geo"', 'address"'))
-    if p.path.parent.name == 'request-quote':
+    if p.path.parent.name in ('request-quote', 'contact'):
         assert 'action="/api/enquiry"' in source
         assert 'id="quote-fields" disabled' in source, 'Fail closed until configuration loads'
         assert 'src="/assets/js/enquiry.js"' in source
+        assert 'value="General enquiry"' in source
+        assert 'aria-describedby="description-hint"' in source
+        assert 'area or postcode where the work is to be completed' in source
+        assert source.count('<form ') == 1
+        if p.path.parent.name == 'contact':
+            assert 'value="General enquiry" selected' in source
     for t,a in p.tags:
         if t == 'img':
             assert all(k in a for k in ('alt', 'width', 'height'))

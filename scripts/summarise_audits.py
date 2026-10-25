@@ -4,7 +4,7 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 results = []
-for name in ('home-mobile', 'quote-mobile', 'home-desktop'):
+for name in ('home-mobile', 'quote-mobile', 'contact-mobile', 'home-desktop'):
     path = ROOT / 'reports' / f'{name}.json'
     if not path.exists():
         continue

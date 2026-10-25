@@ -74,7 +74,7 @@ async function setup() {
     if (widget !== null) window.turnstile.remove(widget);
     widget = window.turnstile.render('#spam-check', {
       sitekey: config.siteKey, action: 'enquiry',
-      callback(value) { token = value; enableSubmit(); showStatus('Ready to send. Quotations are free and no-obligation.'); },
+      callback(value) { token = value; enableSubmit(); showStatus('Ready to send your enquiry. Any quotation is free and no-obligation.'); },
       'expired-callback'() { token = ''; enableSubmit(); showStatus('The spam check expired. Please complete it again.'); },
       'error-callback'() { token = ''; enableSubmit(); retry.hidden = false; showStatus('Spam protection could not load. Retry, or call 07410 928465.'); }
     });
@@ -94,7 +94,7 @@ form.addEventListener('submit', async event => {
   clearErrors();
   const fingerprint = JSON.stringify(checked.data);
   if (previousPayload && previousPayload !== fingerprint && uncertain) {
-    showStatus('An earlier attempt could not be confirmed. Retry with the original details or telephone us before sending a changed enquiry.');
+    showStatus('An earlier attempt could not be confirmed. Retry with the original details or telephone me before sending a changed enquiry.');
     return;
   }
   if (!token) { showStatus('Please complete the spam check.'); return; }
@@ -110,12 +110,12 @@ form.addEventListener('submit', async event => {
     if (!response.ok || result.ok !== true) {
       if (response.status >= 500 || response.status === 409) uncertain = true;
       if (result.errors) showErrors(result.errors);
-      showStatus(result.message || 'Your enquiry could not be confirmed. Retry or telephone us.');
+      showStatus(result.message || 'Your enquiry could not be confirmed. Retry or telephone me.');
       return;
     }
     uncertain = false;
     form.hidden = true; successPanel.hidden = false;
-    document.querySelector('#acknowledgement-status').textContent = result.acknowledgement ? 'An acknowledgement email has been requested. Please check your inbox and spam folder.' : 'We will use the telephone number you supplied to contact you. No email acknowledgement was requested.';
+    document.querySelector('#acknowledgement-status').textContent = result.acknowledgement ? 'An acknowledgement email has been requested. Please check your inbox and spam folder.' : 'I will use the telephone number you supplied to contact you. No email acknowledgement was requested.';
     showStatus(result.message);
     successPanel.focus();
     // A local hook for a later approved analytics adapter. No personal data.
@@ -125,7 +125,7 @@ form.addEventListener('submit', async event => {
     }
   } catch {
     uncertain = true;
-    showStatus('We could not confirm your enquiry. Your details are preserved on this page. Retry with the same details or call 07410 928465.');
+    showStatus('I could not confirm your enquiry. Your details are preserved on this page. Retry with the same details or call 07410 928465.');
   } finally {
     pending = false; fields.disabled = false;
     form.removeAttribute('aria-busy'); submit.textContent = 'Send enquiry';
