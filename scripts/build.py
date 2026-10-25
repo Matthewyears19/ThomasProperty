@@ -7,12 +7,15 @@ import json
 import shutil
 from datetime import date
 from content import Content
+from seo import SEO
+import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist'
 business = json.loads((ROOT / 'data/business.json').read_text(encoding='utf-8'))
 services = json.loads((ROOT / 'data/services.json').read_text(encoding='utf-8'))
 content_data = Content(ROOT, services, business)
+seo = SEO(ROOT, business, services)
 template = Template((ROOT / 'templates/page.html').read_text(encoding='utf-8'))
 # Rebuild only the exact generated directory. Removing an approval must remove
 # its previous pages and images as well; unapproved source images never get copied.
@@ -63,8 +66,12 @@ def intro(title, text, parent=None):
 
 routes = []
 def page(route, title, description, content):
+    description = textwrap.shorten(description, width=160, placeholder='…')
     values = {key: e(value) for key, value in business.items()}
     values.update(title=e(title + ' | ' + business['name']), description=e(description), canonical=e(business['domain'] + route), year=date.today().year, content=content)
+    values['robots'] = 'index, follow' if seo.indexable and route != '/404.html' else 'noindex, nofollow'
+    values['structuredData'] = seo.structured_data(route, title, description)
+    values['navigationBootstrap'] = seo.navigation_bootstrap()
     for name, path in [('home', '/'), ('services', '/services/'), ('faqs', '/faqs/'), ('contact', '/contact/')]:
         values[name + 'Current'] = 'aria-current="page"' if route == path else ''
     values['pageScripts'] = '<script type="module" src="/assets/js/enquiry.js"></script>' if route == '/request-quote/' else ''
@@ -99,7 +106,7 @@ if content_data.reviews:
     trust_sections += '<section class="section section-white"><div class="container"><div class="section-heading"><div><span class="eyebrow">Customer feedback</span><h2>In our customers’ words.</h2></div><a class="text-link" href="/reviews/">Read customer reviews ↗</a></div>' + content_data.review_cards(featured_reviews) + '</div></section>'
 home = home.replace('<section class="section area-section', trust_sections + '<section class="section area-section', 1)
 page('/', 'Property services in Cheshire', 'Painting, decorating, property improvements and maintenance across Cheshire and surrounding areas. Request a free quotation from Thomas Property Services.', home)
-page('/services/', 'Our services', 'Explore painting, decorating, wood finishing, property improvements, jet washing and landlord maintenance in Cheshire.', intro('Property care, inside and out.', 'Explore our services and tell us what your property needs. Work is discussed individually and quotations are free and no-obligation.') + '<section class="section"><div class="container">' + cards(services) + '</div></section>' + cta())
+page('/services/', 'Our services', 'Explore painting, decorating, wood finishing, property improvements, jet washing and landlord maintenance in Cheshire.', intro('Property care, inside and out.', 'Explore our services and tell us what your property needs. Work is discussed individually and quotations are free and no-obligation.') + '<section class="section"><div class="container"><h2>Explore our property services</h2>' + cards(services) + '</div></section>' + cta())
 
 for s in services:
     scope = '<ul class="checklist">' + ''.join('<li>' + e(w) + '</li>' for w in s['work']) + '</ul>'
@@ -158,9 +165,6 @@ privacy = (ROOT / 'templates/privacy-content.html').read_text(encoding='utf-8')
 page('/privacy-policy/', 'Privacy policy — development draft', 'Development privacy notice describing the current local website and outstanding privacy information before launch.', intro('Privacy policy', 'Privacy information for enquiries and website use. Retention details remain subject to the operator’s final notice.') + privacy)
 page('/404.html', 'Page not found', 'This page could not be found. Return to Thomas Property Services or contact us about your property.', intro('This page could not be found.', 'The page may have moved, or the address may be incorrect.') + '<section class="section"><div class="container">' + button('Return to the homepage', '/', 'navy') + '</div></section>')
 
-# Development is deliberately not indexable. A production sitemap is a later release task.
-(OUT / 'robots.txt').write_text('User-agent: *\nDisallow: /\n', encoding='utf-8')
-(OUT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"/>\n', encoding='utf-8')
-(OUT / '_headers').write_text('/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src \'self\'; script-src \'self\' https://challenges.cloudflare.com; connect-src \'self\' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; style-src \'self\'; img-src \'self\'; object-src \'none\'; base-uri \'none\'; frame-ancestors \'none\'; form-action \'self\'\n', encoding='utf-8')
+seo.write_files(OUT, routes)
 (OUT / '_routes.json').write_text(json.dumps({'version': 1, 'include': ['/api/*'], 'exclude': []}), encoding='utf-8')
 print(f'Built {len(routes)} pages in {OUT}')

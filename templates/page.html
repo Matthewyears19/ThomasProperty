@@ -2,10 +2,11 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
+  $navigationBootstrap
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>$title</title>
   <meta name="description" content="$description">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="$robots">
   <link rel="canonical" href="$canonical">
   <meta property="og:type" content="website">
   <meta property="og:title" content="$title">
@@ -13,10 +14,20 @@
   <meta property="og:url" content="$canonical">
   <meta property="og:image" content="$domain/assets/images/logo.jpg">
   <meta property="og:image:alt" content="Thomas Property Services logo">
+  <meta property="og:image:width" content="1254">
+  <meta property="og:image:height" content="1254">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="$name">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="$title">
+  <meta name="twitter:description" content="$description">
+  <meta name="twitter:image" content="$domain/assets/images/logo.jpg">
+  $structuredData
   <meta name="theme-color" content="#012A58">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/analytics.js" defer></script>
   $pageScripts
 </head>
 <body>
@@ -47,7 +58,13 @@
       <div><h2>Let’s talk</h2><a class="footer-phone" href="$phoneHref">$phone</a><a class="email-link" href="mailto:$email">$email</a><a href="/contact/">Contact us</a><a href="/request-quote/">Request a free quote</a>$trustFooter</div>
     </div>
     <div class="container footer-bottom"><span>© $year Thomas Property Services</span><a href="/privacy-policy/">Privacy policy · development draft</a></div>
+    <div class="container analytics-preferences" id="analytics-preferences" hidden>
+      <p id="analytics-description">Optional anonymous usage counts help improve this website. No advertising, visitor profiles or enquiry details are included. Your choice is remembered on this device for six months.</p>
+      <button type="button" id="analytics-allow">Allow usage statistics</button>
+      <button type="button" id="analytics-decline">Keep usage statistics off</button>
+      <p id="analytics-choice" role="status" aria-live="polite"></p>
+    </div>
   </footer>
-  <div class="mobile-actions" aria-label="Quick contact"><a href="$phoneHref">Call $phone</a><a href="/request-quote/">Get a Quote <span aria-hidden="true">↗</span></a></div>
+  <div class="mobile-actions" role="group" aria-label="Quick contact"><a href="$phoneHref">Call $phone</a><a href="/request-quote/">Get a Quote <span aria-hidden="true">↗</span></a></div>
 </body>
 </html>

@@ -1,5 +1,7 @@
 # Thomas Property Services — website source
 
+**Latest work: [Phases 4–5 handover](docs/PHASE-4-5.md).** SEO/schema/social metadata, guarded production sitemap generation, optional first-party aggregate analytics and repeatable release checks are implemented. Run `python scripts/verify.py`. Analytics remains off until its migration/configuration and privacy review are complete; production indexing remains blocked by default. No production deployment or domain changes have been made.
+
 Phase 1 website foundation, Phase 2 enquiry code and Phase 3 content systems, built from the supplied development specification. HTML, CSS and vanilla JavaScript; no frontend framework or runtime npm packages. Python is used only to generate static pages. Cloudflare Pages Functions handle enquiries once the external services are configured.
 
 **Content editing: [Phase 3 guide](docs/PHASE-3.md).** The owner reports Phase 2 account setup complete; this work does not independently claim an end-to-end live delivery test. Genuine photos and permissioned reviews are not yet supplied, so those pages and sections remain hidden. No deployment, push or account changes were made by this implementation. The [Phase 2 checklist](docs/PHASE-2.md) remains the technical integration reference.

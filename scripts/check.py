@@ -9,6 +9,7 @@ from content import Content
 ROOT = Path(__file__).resolve().parents[1] / 'dist'
 SOURCE = ROOT.parent
 content = Content(SOURCE, json.loads((SOURCE / 'data/services.json').read_text(encoding='utf-8')), json.loads((SOURCE / 'data/business.json').read_text(encoding='utf-8')))
+build_info = json.loads((ROOT / 'build-info.json').read_text(encoding='utf-8'))
 
 class Page(HTMLParser):
     def __init__(self, path):
@@ -40,7 +41,13 @@ for p in pages:
     descriptions.add(description)
     assert len(p.ids) == len(set(p.ids)), f'Duplicate ID: {p.path}'
     assert any(t == 'link' and a.get('rel') == 'canonical' for t,a in p.tags)
-    assert 'noindex, nofollow' in source
+    assert ('noindex, nofollow' in source) == (not build_info['indexable'] or p.path.name == '404.html')
+    schemas = __import__('re').findall(r'<script type="application/ld\+json">(.*?)</script>', source)
+    if p.path.name != '404.html':
+        assert len(schemas) == 1, 'Exactly one structured-data graph expected'
+        graph = json.loads(schemas[0])
+        assert graph['@context'] == 'https://schema.org'
+        assert not any(key in schemas[0] for key in ('aggregateRating', 'openingHours', 'geo"', 'address"'))
     if p.path.parent.name == 'request-quote':
         assert 'action="/api/enquiry"' in source
         assert 'id="quote-fields" disabled' in source, 'Fail closed until configuration loads'
@@ -65,8 +72,14 @@ for p in pages:
     assert 'https://www.facebook.com/ThomasPropertyServices' in source
     assert 'tel:+447410928465' in source
     assert 'mailto:thomaspropertyservicesuk@gmail.com' in source
-ET.parse(ROOT / 'sitemap.xml')
-assert 'Disallow: /' in (ROOT / 'robots.txt').read_text()
+sitemap = ET.parse(ROOT / 'sitemap.xml')
+locations = [node.text for node in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+if build_info['indexable']:
+    assert len(locations) == len(pages) - 1
+    assert all('/404.html' not in location and '/api/' not in location for location in locations)
+else:
+    assert not locations
+    assert 'Disallow: /' in (ROOT / 'robots.txt').read_text()
 assert (ROOT / 'our-work/index.html').is_file() == bool(content.projects)
 assert (ROOT / 'reviews/index.html').is_file() == bool(content.reviews)
 print(f'PASS: {len(pages)} pages; unique metadata; internal links/assets; labels/ARIA; development safeguards.')

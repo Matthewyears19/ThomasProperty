@@ -17,6 +17,8 @@ The mould-removal image illustrates general bathroom cleaning, not a real mould 
 
 ## Earlier asset history
 
+Phase 4 performance update: active stock files now use Pexels-provided 640px and 960px WebP versions at quality 75, with the same source/licence and no change in depicted content. The original JPEG downloads are retained as source assets but are not copied into the generated website. This reduced the measured mobile transfer cost. No additional image provider or tracking was introduced.
+
 | Asset | Source | Status |
 | --- | --- | --- |
 | `assets/images/logo.jpg` | User-supplied repository `logo.jpg` | Used as supplied, with CSS cropping for the header. Confirm production rights and request a transparent/vector variant if available. |

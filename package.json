@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "python scripts/build.py",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "verify": "python scripts/verify.py",
+    "preview": "python scripts/serve.py"
   }
 }
