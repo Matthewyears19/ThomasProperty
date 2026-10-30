@@ -1,6 +1,9 @@
 {
   "name": "thomasproperty",
   "keep_vars": true,
+  "vars": {
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFlsr94Fe54z6kZS"
+  },
   "compatibility_date": "2026-10-25",
   "main": "./.worker/index.js",
   "assets": {
